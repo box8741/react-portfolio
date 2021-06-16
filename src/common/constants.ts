@@ -9,7 +9,4 @@ const Hooks = () => {
 
 export default {
   Hooks,
-  themeColorDark: '#1b1b1b',
-  themeColorNormal: '#424242',
-  themeColorLight: '#6d6d6d',
 }
