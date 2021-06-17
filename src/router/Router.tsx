@@ -13,7 +13,7 @@ import NotFoundPage from '../pages/NotFoundPage'
 const Router = () => {
   return (
     <MuiThemeProvider theme={theme}>
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Switch>
           <Route path="/main" component={MainPage} />
           <Route path="/" exact component={LoginPage} />
