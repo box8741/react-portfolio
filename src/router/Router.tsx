@@ -3,7 +3,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import {MuiThemeProvider} from '@material-ui/core'
 
 import mkConst from '../common/constants'
-import theme from '../theme'
+import theme from '../theme/marterialTheme'
 
 // pages
 import LoginPage from '../pages/LoginPage'

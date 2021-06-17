@@ -1,9 +1,9 @@
 import {useState} from 'react'
 import {TextField} from '@material-ui/core'
-import {RouteComponentProps, Link} from 'react-router-dom'
-import styled, {css, keyframes} from 'styled-components'
+import {RouteComponentProps} from 'react-router-dom'
+import styled, {css, keyframes} from 'styled-components/macro'
 
-import theme from '../../theme'
+import theme from '../../theme/marterialTheme'
 
 import mkConst from '../../common/constants'
 
@@ -14,12 +14,19 @@ const LoginPage = (props: RouteComponentProps) => {
     <Layout>
       <LoginLayout>
         <LoginTitle>Portfolio</LoginTitle>
-        <TextField value={cert} onChange={({target: {value}}) => setCert(value)} type="password" label="인증번호" variant="outlined" />
+        <TextField
+          value={cert}
+          onChange={({target: {value}}) => setCert(value)}
+          type="password"
+          label="인증번호"
+          variant="outlined"
+        />
         <LoginButton
           onClick={() => {
-            if (cert !== certSuccess) alert('인증번호가 일치하지 않습니다.')
+            // if (cert !== certSuccess) alert('인증번호가 일치하지 않습니다.')
             // else props.history.push('/main')
-            else window.location.href = '/main'
+            // else window.location.href = '/main'
+            window.location.href = '/main'
           }}
         >
           접속하기
@@ -28,9 +35,9 @@ const LoginPage = (props: RouteComponentProps) => {
     </Layout>
   )
 }
-const fadeIn = keyframes`
+const showFrame = keyframes`
   0% { 
-    transform: translateY(120px);
+    transform: translateY(60px);
     opacity: 0;
   },
   100% {
@@ -39,7 +46,7 @@ const fadeIn = keyframes`
   }
 `
 const showAnimation = css`
-  animation: 800ms ${fadeIn} ease-in-out;
+  animation: 1s ${showFrame} ease-in-out;
 `
 const Layout = styled.div`
   display: flex;
