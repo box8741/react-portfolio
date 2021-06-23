@@ -1,19 +1,50 @@
-import {} from 'react'
-import {} from '@material-ui/core'
+import {useState, useEffect} from 'react'
+import {RouteComponentProps, Route, Switch, withRouter} from 'react-router-dom'
 import styled from 'styled-components/macro'
+import clsx from 'clsx'
+import {MuiThemeProvider, makeStyles} from '@material-ui/core'
 
 import mkConst from '../../common/constants'
 import theme from '../../theme/marterialTheme'
-import {Header, Footer} from '../../components'
+import {Drawer, Header} from '../../components'
 
-const MainPage = () => {
+import MainRouter from '../../router/MainRouter'
+
+const useStyles = makeStyles(theme => ({
+  content: {
+    transition: theme.transitions.create('margin', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    marginLeft: 0,
+  },
+  contentShift: {
+    transition: theme.transitions.create('margin', {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+    marginLeft: 300,
+  },
+}))
+
+const MainPage = (props: RouteComponentProps) => {
+  const classes = useStyles()
+  const {isMobile} = mkConst.Hooks()
+  const [isVisible, setVisible] = useState(true)
+
+  useEffect(() => {
+    isMobile ? setVisible(false) : setVisible(true)
+  }, [isMobile])
+
   return (
-    <Layout>
-      <Header />
-      <Content>
-        <div style={{height: 3000}}>MainPage</div>
-      </Content>
-      <Footer />
+    <Layout
+      className={clsx(classes.content, {
+        [classes.contentShift]: isVisible,
+      })}
+    >
+      {!isVisible && <Header onDrawerVisible={setVisible} />}
+      <Drawer isVisible={isVisible} />
+      <MainRouter />
     </Layout>
   )
 }
@@ -21,13 +52,8 @@ const MainPage = () => {
 const Layout = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100vw;
   min-height: 100vh;
-  background: ${theme.palette.primary.light};
-`
-const Content = styled.div`
-  display: flex;
-  flex: 1;
+  background: ${theme.palette.background.paper};
 `
 
 export default MainPage

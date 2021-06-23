@@ -1,57 +1,45 @@
-import {} from 'react'
-import {} from '@material-ui/core'
-import styled from 'styled-components/macro'
+import {useState} from 'react'
+import {IconButton} from '@material-ui/core'
+import * as Icon from '@material-ui/icons'
+import styled, {css} from 'styled-components/macro'
+import {RouteComponentProps, withRouter} from 'react-router-dom'
 
+import mkConst from '../common/constants'
 import theme from '../theme/marterialTheme'
 
-const Header = () => {
+type Props = RouteComponentProps & {
+  onDrawerVisible: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const Header = (props: Props) => {
+  const {onDrawerVisible} = props
+
   return (
     <Layout>
-      <Content>
-        <Title>Portfolio</Title>
-        <ItemLayout>
-          <Item>Introduce</Item>
-          <Item>Project</Item>
-          <Item>Skill</Item>
-        </ItemLayout>
-      </Content>
+      <IconButton onClick={() => onDrawerVisible(true)}>
+        <MenuIcon />
+      </IconButton>
+      <Logo>Logo</Logo>
     </Layout>
   )
 }
+
 const Layout = styled.div`
   display: flex;
-  position: sticky;
-  top: 0;
-  height: 80px;
-  justify-content: center;
-  padding: 0px 24px;
-  background: ${theme.palette.primary.main};
-  box-shadow: 0px 8px 12px #333333;
-`
-const Content = styled.div`
-  display: flex;
-  flex: 1;
-  max-width: 1200px;
   align-items: center;
-  justify-content: space-between;
+  height: 80px;
+  background: ${theme.palette.background.default};
+  padding: 12px 18px;
 `
-const Title = styled.span`
-  font-size: 46px;
+const Logo = styled.div`
+  font-size: 36px;
+  font-weight: 900;
   color: white;
+  margin-left: 16px;
 `
-const ItemLayout = styled.div`
-  display: flex;
-  flex-direction: row;
-`
-const Item = styled.a`
-  color: #888888;
-  font-size: 18px;
-  margin: 0px 12px;
-  cursor: default;
-  transition: all 160ms;
-  &:hover {
-    color: white;
-  }
+const MenuIcon = styled(Icon.Notes)`
+  color: white;
+  font-size: 34px;
 `
 
-export default Header
+export default withRouter(Header)

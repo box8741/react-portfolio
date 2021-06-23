@@ -5,6 +5,13 @@ const marterialTheme = createMuiTheme({
     primary: {
       main: '#212121',
     },
+    secondary: {
+      main: '#fdd835',
+    },
+    background: {
+      default: '#353451',
+      paper: '#F9F9FE',
+    },
     // secondary: {
     //   main: '',
     // },

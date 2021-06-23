@@ -6,13 +6,13 @@ import mkConst from './common/constants'
 
 const SamplePage = () => {
   return (
-    <Container>
+    <Layout>
       <span>SamplePage</span>
-    </Container>
+    </Layout>
   )
 }
 
-const Container = styled('div')`
+const Layout = styled('div')`
   width: 100vw;
   min-height: 100vh;
 `
