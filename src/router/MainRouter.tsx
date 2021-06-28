@@ -6,6 +6,7 @@ import theme from '../theme/marterialTheme'
 
 // pages
 import HomePage from '../pages/HomePage'
+import AboutPage from '../pages/AboutPage'
 
 const MainRouter = (props: RouteComponentProps) => {
   const {match} = props
@@ -13,6 +14,7 @@ const MainRouter = (props: RouteComponentProps) => {
   return (
     <Switch>
       <Route path={`${match.url}`} exact component={HomePage} />
+      <Route path={`${match.url}/about`} component={AboutPage} />
     </Switch>
   )
 }

@@ -12,7 +12,7 @@ type Props = RouteComponentProps & {
 }
 
 const Drawer = (props: Props) => {
-  const {isVisible = true} = props
+  const {isVisible = true, history} = props
   const {isMobile} = mkConst.Hooks()
 
   return (
@@ -21,11 +21,11 @@ const Drawer = (props: Props) => {
         <div>
           <Logo>Logo</Logo>
           <ItemLayout>
-            <Item>
+            <Item onClick={() => history.push('/main')}>
               <HomeIcon />
               Home
             </Item>
-            <Item>
+            <Item onClick={() => history.push('/main/about')}>
               <AboutIcon />
               About
             </Item>
