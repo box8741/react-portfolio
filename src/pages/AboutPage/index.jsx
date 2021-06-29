@@ -5,12 +5,13 @@ import styled, {keyframes} from 'styled-components/macro'
 
 import mkConst from '../../common/constants'
 import theme from '../../theme/marterialTheme'
-import {Title} from '../../components'
+import {Title, LineProgress} from '../../components'
 
 const AboutPage = () => {
   return (
     <Layout>
       <Title>About Me</Title>
+
       <InfoLayout>
         <Avatar src={'/assets/images/avatar.png'} />
         <InfoContentLayout>
@@ -20,47 +21,54 @@ const AboutPage = () => {
           </InfoText>
           <InfoGraphLayout>
             <GraphItemLayout>
-              <GraphItem>
-                <GraphTitle>Development</GraphTitle>
-                <GraphPercentText>84%</GraphPercentText>
-              </GraphItem>
-              <GraphItem>
-                <GraphTitle>UI/UX Design</GraphTitle>
-                <GraphPercentText>95%</GraphPercentText>
-              </GraphItem>
+              <GraphItemWrap>
+                <GraphItemInfoWrap>
+                  <GraphItemTitle>Development</GraphItemTitle>
+                  <GraphItemPercentText>84%</GraphItemPercentText>
+                </GraphItemInfoWrap>
+                <GraphItemProgress color="#F8D270" percent={84} />
+              </GraphItemWrap>
+              <GraphItemWrap>
+                <GraphItemInfoWrap>
+                  <GraphItemTitle>UI/UX Design</GraphItemTitle>
+                  <GraphItemPercentText>95%</GraphItemPercentText>
+                </GraphItemInfoWrap>
+                <GraphItemProgress color="#EC5A65" percent={95} />
+              </GraphItemWrap>
             </GraphItemLayout>
           </InfoGraphLayout>
         </InfoContentLayout>
       </InfoLayout>
+
       <ItemLayout>
-        <Item>
+        <ItemWrap>
           <Icon.Whatshot style={{fontSize: 42, color: '#bbbbbb', marginRight: 18}} />
           <ItemTextLayout>
             <ItemNumber>356</ItemNumber>
             <ItemName>완료된 프로젝트</ItemName>
           </ItemTextLayout>
-        </Item>
-        <Item>
+        </ItemWrap>
+        <ItemWrap>
           <Icon.LocalCafe style={{fontSize: 42, color: '#bbbbbb', marginRight: 18}} />
           <ItemTextLayout>
             <ItemNumber>480</ItemNumber>
             <ItemName>마신 커피수</ItemName>
           </ItemTextLayout>
-        </Item>
-        <Item>
+        </ItemWrap>
+        <ItemWrap>
           <Icon.Whatshot style={{fontSize: 42, color: '#bbbbbb', marginRight: 18}} />
           <ItemTextLayout>
             <ItemNumber>356</ItemNumber>
             <ItemName>완료된 프로젝트</ItemName>
           </ItemTextLayout>
-        </Item>
-        <Item>
+        </ItemWrap>
+        <ItemWrap>
           <Icon.Whatshot style={{fontSize: 42, color: '#bbbbbb', marginRight: 18}} />
           <ItemTextLayout>
             <ItemNumber>356</ItemNumber>
             <ItemName>완료된 프로젝트</ItemName>
           </ItemTextLayout>
-        </Item>
+        </ItemWrap>
       </ItemLayout>
     </Layout>
   )
@@ -98,8 +106,9 @@ const InfoContentLayout = styled.div`
 const InfoText = styled.div`
   display: flex;
   flex: 1;
-  font-size: 18px;
+  font-size: 16px;
   color: ${theme.palette.text.secondary};
+  margin-right: 28px;
   line-height: 28px;
   letter-spacing: 1px;
   word-break: normal;
@@ -112,29 +121,37 @@ const InfoGraphLayout = styled.div`
   flex-direction: column;
 `
 const GraphItemLayout = styled.div``
-const GraphItem = styled.div`
+const GraphItemWrap = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  margin-bottom: 24px;
+`
+const GraphItemInfoWrap = styled.div`
+  display: flex;
   align-items: center;
   justify-content: space-between;
 `
-const GraphTitle = styled.span`
+const GraphItemTitle = styled.span`
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 800;
   color: ${theme.palette.primary.light};
 `
-const GraphPercentText = styled.span`
-  font-size: 16px;
+const GraphItemPercentText = styled.span`
+  font-size: 14px;
   color: ${theme.palette.primary.light};
+`
+const GraphItemProgress = styled(LineProgress)`
+  margin-top: 12px;
 `
 const ItemLayout = styled.div`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   margin-top: 32px;
   padding: 0px 24px;
 `
-const Item = styled.div`
+const ItemWrap = styled.div`
   display: flex;
+  align-items: center;
 `
 const ItemTextLayout = styled.div`
   display: flex;
