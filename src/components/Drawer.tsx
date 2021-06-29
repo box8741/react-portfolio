@@ -29,13 +29,13 @@ const Drawer = (props: Props) => {
               <AboutIcon />
               About
             </Item>
+            <Item onClick={() => history.push('/main/works')}>
+              <WorksIcon />
+              Works
+            </Item>
             <Item>
               <ServicesIcon />
               Services
-            </Item>
-            <Item>
-              <WorksIcon />
-              Works
             </Item>
             <Item>
               <BlogIcon />
@@ -44,7 +44,7 @@ const Drawer = (props: Props) => {
           </ItemLayout>
         </div>
 
-        <Etc>© 2021 Bolby Template.</Etc>
+        <Etc>© 2021 Min Portfolio</Etc>
       </Layout>
     </MarterialDrawer>
   )
