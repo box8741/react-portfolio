@@ -79,7 +79,7 @@ const Layout = styled.div`
   flex-direction: column;
   align-self: center;
   justify-content: center;
-  width: 90%;
+  width: 100%;
   min-height: 100vh;
   background: ${theme.palette.background.paper};
 `

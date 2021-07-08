@@ -8,16 +8,17 @@ import mkConst from '../common/constants'
 import theme from '../theme/marterialTheme'
 
 type Props = RouteComponentProps & {
-  isVisible?: boolean
+  isVisible: boolean
+  isMobile: boolean
+  setVisible: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const Drawer = (props: Props) => {
-  const {isVisible = true, history} = props
-  const {isMobile} = mkConst.Hooks()
+  const {isVisible, isMobile, setVisible, history} = props
 
-  return (
-    <MarterialDrawer PaperProps={{style: {borderRight: 0}}} open={isVisible} anchor="left" variant={'persistent'}>
-      <Layout>
+  const _drawerContent = () => {
+    return (
+      <>
         <div>
           <Logo>Logo</Logo>
           <ItemLayout>
@@ -43,23 +44,61 @@ const Drawer = (props: Props) => {
             </Item>
           </ItemLayout>
         </div>
-
         <Etc>© 2021 Min Portfolio</Etc>
-      </Layout>
-    </MarterialDrawer>
+      </>
+    )
+  }
+
+  return (
+    <>
+      <DrawerBackground onClick={() => setVisible(false)} {...{isVisible, isMobile}}></DrawerBackground>
+      <DrawerContent isVisible={isVisible}>{_drawerContent()}</DrawerContent>
+    </>
   )
 }
 
-const Layout = styled.div<{isVisible?: boolean}>`
+const DrawerContent = styled.div<{isVisible: boolean}>`
   display: flex;
-  flex: 1;
-  flex-direction: column;
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 300px;
+  min-height: 100vh;
+  flex-direction: column;
   justify-content: space-between;
+  z-index: 1;
   background: ${theme.palette.background.default};
   padding: 38px;
   border-right: 1px solid #4a4863;
+  transition: margin-left 0.4s ease-in-out;
+  margin-left: -300px
+    ${props =>
+      props.isVisible &&
+      css`
+        margin-left: 0;
+      `};
 `
+const DrawerBackground = styled.div<{isVisible: boolean; isMobile: boolean}>`
+  position: absolute;
+  pointer-events: none;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  z-index: 1;
+  ${({isVisible, isMobile}) => {
+    if (isVisible && isMobile) {
+      return css`
+        pointer-events: auto;
+        opacity: 0.2;
+      `
+    }
+  }}
+`
+
 const Logo = styled.div`
   font-size: 36px;
   font-weight: 900;
@@ -81,25 +120,25 @@ const Item = styled.div`
     color: ${theme.palette.secondary.main};
   }
 `
-const TabIcon = css`
+const tabIcon = css`
   font-size: 24px;
   margin-right: 16px;
   color: ${theme.palette.secondary.main};
 `
 const HomeIcon = styled(Icon.HomeOutlined)`
-  ${TabIcon}
+  ${tabIcon}
 `
 const AboutIcon = styled(Icon.HomeOutlined)`
-  ${TabIcon}
+  ${tabIcon}
 `
 const ServicesIcon = styled(Icon.HomeOutlined)`
-  ${TabIcon}
+  ${tabIcon}
 `
 const WorksIcon = styled(Icon.HomeOutlined)`
-  ${TabIcon}
+  ${tabIcon}
 `
 const BlogIcon = styled(Icon.HomeOutlined)`
-  ${TabIcon}
+  ${tabIcon}
 `
 const Etc = styled.span`
   color: #8e8e8e;

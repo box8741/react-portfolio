@@ -50,7 +50,8 @@ const SamplePage = () => {
 const Layout = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
   justify-content: center;
   align-items: center;
   background: ${theme.palette.background.default};

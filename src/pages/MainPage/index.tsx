@@ -1,7 +1,7 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useCallback} from 'react'
+import _ from 'lodash'
 import {RouteComponentProps, Route, Switch, withRouter} from 'react-router-dom'
-import styled from 'styled-components/macro'
-import clsx from 'clsx'
+import styled, {css} from 'styled-components/macro'
 import {MuiThemeProvider, makeStyles} from '@material-ui/core'
 
 import mkConst from '../../common/constants'
@@ -10,41 +10,30 @@ import {Drawer, Header} from '../../components'
 
 import MainRouter from '../../router/MainRouter'
 
-const useStyles = makeStyles(theme => ({
-  content: {
-    transition: theme.transitions.create('margin', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    marginLeft: 0,
-  },
-  contentShift: {
-    transition: theme.transitions.create('margin', {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-    marginLeft: 300,
-  },
-}))
-
 const MainPage = (props: RouteComponentProps) => {
-  const classes = useStyles()
-  const {isMobile} = mkConst.Hooks()
-  const [isVisible, setVisible] = useState(true)
+  const [isVisible, setVisible] = useState(!(innerWidth <= 860))
+  const [isMobile, setMobile] = useState(innerWidth <= 860)
 
   useEffect(() => {
-    isMobile ? setVisible(false) : setVisible(true)
+    setVisible(!isMobile)
   }, [isMobile])
 
+  const handleResize = _.debounce(() => {
+    setMobile(innerWidth <= 860)
+  }, 32)
+
+  useEffect(() => {
+    addEventListener('resize', handleResize)
+    return () => removeEventListener('resize', handleResize)
+  }, [])
+
   return (
-    <Layout
-      className={clsx(classes.content, {
-        [classes.contentShift]: isVisible,
-      })}
-    >
-      {!isVisible && <Header onDrawerVisible={setVisible} />}
-      <Drawer isVisible={isVisible} />
-      <MainRouter />
+    <Layout>
+      <Drawer {...{isVisible, isMobile, setVisible}} />
+      <MainLayout {...{isVisible, isMobile}}>
+        {isMobile && <Header onDrawerVisible={setVisible} />}
+        <MainRouter />
+      </MainLayout>
     </Layout>
   )
 }
@@ -52,8 +41,25 @@ const MainPage = (props: RouteComponentProps) => {
 const Layout = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
   background: ${theme.palette.background.paper};
+`
+const MainLayout = styled.div<{isVisible: boolean; isMobile: boolean}>`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+  transition: all 0.4s ease-in-out;
+  ${({isVisible, isMobile}) => {
+    if (isVisible && !isMobile) {
+      return css`
+        width: calc(100% - 300px);
+        margin-left: 300px;
+      `
+    }
+  }}
 `
 
 export default MainPage

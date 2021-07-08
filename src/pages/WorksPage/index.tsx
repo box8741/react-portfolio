@@ -48,7 +48,7 @@ const WorksPage = () => {
 const Layout = styled.div`
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 100%;
   min-height: 100vh;
   align-self: center;
   padding-top: 24px;
