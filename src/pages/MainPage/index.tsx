@@ -11,15 +11,15 @@ import {Drawer, Header} from '../../components'
 import MainRouter from '../../router/MainRouter'
 
 const MainPage = (props: RouteComponentProps) => {
-  const [isVisible, setVisible] = useState(!(innerWidth <= 860))
-  const [isMobile, setMobile] = useState(innerWidth <= 860)
+  const [isVisible, setVisible] = useState(!(innerWidth <= 1024))
+  const [isMobile, setMobile] = useState(innerWidth <= 1024)
 
   useEffect(() => {
     setVisible(!isMobile)
   }, [isMobile])
 
   const handleResize = _.debounce(() => {
-    setMobile(innerWidth <= 860)
+    setMobile(innerWidth <= 1024)
   }, 32)
 
   useEffect(() => {
@@ -30,8 +30,8 @@ const MainPage = (props: RouteComponentProps) => {
   return (
     <Layout>
       <Drawer {...{isVisible, isMobile, setVisible}} />
+      {isMobile && <Header onDrawerVisible={setVisible} />}
       <MainLayout {...{isVisible, isMobile}}>
-        {isMobile && <Header onDrawerVisible={setVisible} />}
         <MainRouter />
       </MainLayout>
     </Layout>

@@ -23,7 +23,7 @@ const TitleText = styled.div`
   font-size: 38px;
   font-weight: 900;
   color: ${theme.palette.background.default};
-  margin: 28px 38px;
+  margin: 28px;
 `
 const TitleImg = styled.img`
   position: absolute;

@@ -1,5 +1,5 @@
 import {useEffect, useState, useMemo} from 'react'
-import {IconButton} from '@material-ui/core'
+import {IconButton, useMediaQuery} from '@material-ui/core'
 import * as Icon from '@material-ui/icons'
 import styled, {keyframes} from 'styled-components/macro'
 
@@ -77,31 +77,59 @@ const AboutPage = () => {
 const Layout = styled.div`
   display: flex;
   flex-direction: column;
-  align-self: center;
   justify-content: center;
   width: 100%;
-  min-height: 100vh;
+  min-height: 100%;
+  padding: 0px 36px;
   background: ${theme.palette.background.paper};
+  ${({theme}) => theme.media.tablet`
+      justify-content: flex-start;
+    `}
+  ${({theme}) => theme.media.mobile`
+      justify-content: flex-start;
+    `}
 `
 const Avatar = styled.img`
   width: 150px;
   height: 150px;
   margin-right: 34px;
+  ${({theme}) => theme.media.tablet`
+      margin-bottom: 32px;
+      margin-right: 0px;
+    `}
+  ${({theme}) => theme.media.mobile`
+      margin-bottom: 32px;
+      margin-right: 0px;
+    `}
 `
 const InfoLayout = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin: 32px 0px;
+  ${({theme}) => theme.media.tablet`
+      flex-direction: column;
+      align-items: center;
+    `}
+  ${({theme}) => theme.media.mobile`
+      flex-direction: column;
+      align-items: center;
+    `}
 `
 const InfoContentLayout = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: row wrap;
   background: white;
-  max-width: 74%;
+  max-width: 100%;
   padding: 24px;
   border-radius: 16px;
   box-shadow: 1px 1px 32px #dddddd;
+  ${({theme}) => theme.media.tablet`
+      flex-direction: column;
+    `}
+  ${({theme}) => theme.media.mobile`
+      flex-direction: column;
+    `}
 `
 const InfoText = styled.div`
   display: flex;
@@ -114,6 +142,12 @@ const InfoText = styled.div`
   word-break: normal;
   line-height: 28px;
   letter-spacing: 1px;
+  ${({theme}) => theme.media.tablet`
+      margin-bottom: 18px;
+    `}
+  ${({theme}) => theme.media.mobile`
+      margin-bottom: 18px;
+    `}
 `
 const InfoGraphLayout = styled.div`
   display: flex;
@@ -148,10 +182,18 @@ const ItemLayout = styled.div`
   grid-template-columns: repeat(4, 1fr);
   margin-top: 32px;
   padding: 0px 24px;
+  ${({theme}) => theme.media.tablet`
+    grid-template-columns: repeat(2, 1fr);
+  `}
+  ${({theme}) => theme.media.mobile`
+    grid-template-columns: repeat(1, 1fr);
+  `}
 `
 const ItemWrap = styled.div`
   display: flex;
+  justify-content: flex-start;
   align-items: center;
+  margin-bottom: 16px;
 `
 const ItemTextLayout = styled.div`
   display: flex;

@@ -51,7 +51,7 @@ const Layout = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 100vh;
+  min-height: 100%;
   justify-content: center;
   align-items: center;
   background: ${theme.palette.background.default};

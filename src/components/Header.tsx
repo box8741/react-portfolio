@@ -26,6 +26,9 @@ const Header = (props: Props) => {
 
 const Layout = styled.div`
   display: flex;
+  /* position: sticky; */
+  top: 0;
+  left: 0;
   align-items: center;
   height: 80px;
   background: ${theme.palette.background.default};
