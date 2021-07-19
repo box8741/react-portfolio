@@ -1,8 +1,11 @@
 import {useState} from 'react'
-import {RouteComponentProps, Route, Switch, withRouter} from 'react-router-dom'
+import {RouteComponentProps, Route, Switch, withRouter, Redirect} from 'react-router-dom'
 
 import mkConst from '../common/constants'
 import theme from '../theme/marterialTheme'
+
+// error pages
+import NotFoundPage from '../pages/NotFoundPage'
 
 // pages
 import HomePage from '../pages/HomePage'

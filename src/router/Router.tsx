@@ -5,10 +5,11 @@ import {MuiThemeProvider} from '@material-ui/core'
 import mkConst from '../common/constants'
 import theme from '../theme/marterialTheme'
 
+// error pages
+import NotFoundPage from '../pages/NotFoundPage'
 // pages
 import LoginPage from '../pages/LoginPage'
 import MainPage from '../pages/MainPage'
-import NotFoundPage from '../pages/NotFoundPage'
 
 const Router = () => {
   return (

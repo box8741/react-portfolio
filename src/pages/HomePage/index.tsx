@@ -54,7 +54,7 @@ const Layout = styled.div`
   min-height: 100%;
   justify-content: center;
   align-items: center;
-  background: ${theme.palette.background.default};
+  background: ${({theme}) => theme.color.background.primary};
 `
 const ProfileImg = styled.img`
   width: 120px;

@@ -82,7 +82,7 @@ const Layout = styled.div`
   max-width: 1024px;
   min-height: 100%;
   padding: 0px 36px;
-  background: ${theme.palette.background.paper};
+  background: ${({theme}) => theme.color.background.default};
   ${({theme}) => theme.media.tablet`
       justify-content: flex-start;
     `}

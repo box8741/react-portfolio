@@ -55,7 +55,10 @@ const Layout = styled.div`
   height: 100vh;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(${theme.palette.background.default} 60%, ${theme.palette.background.paper} 40%);
+  background: linear-gradient(
+    ${({theme}) => theme.color.background.primary} 60%,
+    ${({theme}) => theme.color.background.default} 40%
+  );
 `
 const LoginLayout = styled.div`
   display: flex;

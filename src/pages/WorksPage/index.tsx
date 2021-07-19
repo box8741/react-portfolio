@@ -68,7 +68,7 @@ const TabLayout = styled.ul`
 const TabItemWrap = styled.li<{isSelect: boolean}>`
   font-size: 16px;
   font-weight: 900;
-  color: ${props => (props.isSelect ? '#ec5a65' : theme.palette.primary.main)};
+  color: ${props => (props.isSelect ? '#ec5a65' : props.theme.color.background.primary)};
   margin-right: 24px;
   list-style: none;
   transition: color 0.3s ease-in-out;

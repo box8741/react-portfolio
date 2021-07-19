@@ -26,7 +26,16 @@ const media: Record<keyof typeof sizes, (l: TemplateStringsArray, ...p: string[]
   `,
 }
 
+const color = {
+  background: {
+    primary: '#353451',
+    default: '#F9F9FE',
+  },
+}
+
 export const theme = {
   media,
+  color,
 }
+
 export type Theme = typeof theme
