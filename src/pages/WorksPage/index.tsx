@@ -8,14 +8,19 @@ import {Title} from '../../components'
 
 const WorksPage = () => {
   const [tabIndex, setTabIndex] = useState(0)
-  const [workAniIndex, setWorkAniIndex] = useState(-1)
-  const tabDummy = [{name: 'Everything'}, {name: 'Creative'}, {name: 'Art'}, {name: 'Design'}, {name: 'Branding'}]
+  const tabMock = [{name: 'Everything'}, {name: 'Creative'}, {name: 'Art'}, {name: 'Design'}, {name: 'Branding'}]
+  const workMock = [
+    {thum_img: '/assets/svgs/standard_main.svg'},
+    {thum_img: '/assets/images/monthly_main.png'},
+    {thum_img: '/assets/svgs/life_main.svg'},
+    {thum_img: '/assets/svgs/dosode_main.svg'},
+  ]
 
   return (
     <Layout>
       <Title style={{marginTop: '80px'}}>Recent Works</Title>
       <TabLayout>
-        {tabDummy.map((i, j) => (
+        {tabMock.map((i, j) => (
           <TabItemWrap
             key={j}
             isSelect={tabIndex === j}
@@ -28,20 +33,17 @@ const WorksPage = () => {
         ))}
       </TabLayout>
       <WorkLayout>
-        {Array(19)
-          .fill(0)
-          .map((i, j) => {
-            const isHover = workAniIndex === j
-            return (
-              <WorkItemWrap onMouseEnter={() => setWorkAniIndex(j)} onMouseLeave={() => setWorkAniIndex(-1)} key={j}>
-                <WorkItemThumb src={'https://cdn.pixabay.com/photo/2020/04/06/13/37/coffee-5009730_1280.png'} />
-                <WorkItemDetail>
-                  <DetailCategory isHover={isHover}>Art</DetailCategory>
-                  <DetailText isHover={isHover}>Project Managment</DetailText>
-                </WorkItemDetail>
-              </WorkItemWrap>
-            )
-          })}
+        {workMock.map((i, j) => {
+          return (
+            <WorkItemWrap key={j}>
+              <WorkItemThumb src={i.thum_img} />
+              <WorkItemDetail>
+                <DetailCategory>Art</DetailCategory>
+                <DetailText>Project Managment</DetailText>
+              </WorkItemDetail>
+            </WorkItemWrap>
+          )
+        })}
       </WorkLayout>
     </Layout>
   )
@@ -79,7 +81,8 @@ const TabItemWrap = styled.li<{isSelect: boolean}>`
 `
 const WorkLayout = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, minmax(auto, 100%));
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(0, 300px);
   grid-gap: 32px;
   padding: 24px;
   ${({theme}) => theme.media.tablet`
@@ -89,18 +92,6 @@ const WorkLayout = styled.div`
        grid-template-columns: repeat(1, minmax(auto, 100%));
   `}
 `
-const WorkItemWrap = styled.div`
-  position: relative;
-  border-radius: 22px;
-  overflow: hidden;
-  box-shadow: 1px 1px 16px #cccccc;
-  background: transparent;
-  cursor: pointer;
-`
-const WorkItemThumb = styled.img`
-  width: 100%;
-  height: 100%;
-`
 const WorkItemDetail = styled.div`
   position: absolute;
   top: 0;
@@ -109,12 +100,8 @@ const WorkItemDetail = styled.div`
   bottom: 0;
   opacity: 0;
   transition: all 0.3s ease-in-out;
-  &:hover {
-    opacity: 1;
-    background: rgba(83, 109, 254, 0.8);
-  }
 `
-const DetailCategory = styled.div<{isHover: boolean}>`
+const DetailCategory = styled.div`
   position: absolute;
   background: #ec5a65;
   padding: 4px 10px;
@@ -124,13 +111,8 @@ const DetailCategory = styled.div<{isHover: boolean}>`
   color: white;
   transform: translateY(-100%);
   transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-  ${props =>
-    props.isHover &&
-    css`
-      transform: translateY(0);
-    `}
 `
-const DetailText = styled.span<{isHover: boolean}>`
+const DetailText = styled.span`
   position: absolute;
   top: 60px;
   left: 20px;
@@ -139,11 +121,30 @@ const DetailText = styled.span<{isHover: boolean}>`
   font-weight: 900;
   color: white;
   transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-  ${props =>
-    props.isHover &&
-    css`
-      transform: translateY(0);
-    `}
+`
+const WorkItemWrap = styled.div`
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 1px 1px 16px #cccccc;
+  background: transparent;
+  cursor: pointer;
+  &:hover ${WorkItemDetail} {
+    opacity: 1;
+    background: rgba(83, 109, 254, 0.8);
+  }
+  &:hover ${DetailCategory} {
+    transform: translateY(0);
+  }
+  &:hover ${DetailText} {
+    transform: translateY(0);
+  }
+`
+const WorkItemThumb = styled.img`
+  width: 100%;
+  height: 100%;
+  padding: 18px;
+  object-fit: contain;
 `
 
 export default WorksPage
