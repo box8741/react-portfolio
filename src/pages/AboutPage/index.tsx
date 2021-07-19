@@ -76,9 +76,10 @@ const AboutPage = () => {
 
 const Layout = styled.div`
   display: flex;
+  align-self: center;
   flex-direction: column;
   justify-content: center;
-  width: 100%;
+  max-width: 1024px;
   min-height: 100%;
   padding: 0px 36px;
   background: ${theme.palette.background.paper};

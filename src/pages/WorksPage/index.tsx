@@ -13,7 +13,7 @@ const WorksPage = () => {
 
   return (
     <Layout>
-      <Title>Recent Works</Title>
+      <Title style={{marginTop: '80px'}}>Recent Works</Title>
       <TabLayout>
         {tabDummy.map((i, j) => (
           <TabItemWrap
@@ -28,18 +28,20 @@ const WorksPage = () => {
         ))}
       </TabLayout>
       <WorkLayout>
-        {[1, 2, 3, 4, 5].map((i, j) => {
-          const isHover = workAniIndex === j
-          return (
-            <WorkItemWrap onMouseEnter={() => setWorkAniIndex(j)} onMouseLeave={() => setWorkAniIndex(-1)} key={j}>
-              <WorkItemThumb src={'https://cdn.pixabay.com/photo/2020/04/06/13/37/coffee-5009730_1280.png'} />
-              <WorkItemDetail>
-                <DetailCategory isHover={isHover}>Art</DetailCategory>
-                <DetailText isHover={isHover}>Project Managment</DetailText>
-              </WorkItemDetail>
-            </WorkItemWrap>
-          )
-        })}
+        {Array(19)
+          .fill(0)
+          .map((i, j) => {
+            const isHover = workAniIndex === j
+            return (
+              <WorkItemWrap onMouseEnter={() => setWorkAniIndex(j)} onMouseLeave={() => setWorkAniIndex(-1)} key={j}>
+                <WorkItemThumb src={'https://cdn.pixabay.com/photo/2020/04/06/13/37/coffee-5009730_1280.png'} />
+                <WorkItemDetail>
+                  <DetailCategory isHover={isHover}>Art</DetailCategory>
+                  <DetailText isHover={isHover}>Project Managment</DetailText>
+                </WorkItemDetail>
+              </WorkItemWrap>
+            )
+          })}
       </WorkLayout>
     </Layout>
   )
@@ -48,14 +50,20 @@ const WorksPage = () => {
 const Layout = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  max-width: 1024px;
   min-height: 100%;
   align-self: center;
   padding-top: 24px;
 `
 const TabLayout = styled.ul`
   display: flex;
-  margin: 20px 0;
+  margin: 36px 0;
+  ${({theme}) => theme.media.tablet`
+       display: none;
+  `}
+  ${({theme}) => theme.media.mobile`
+       display: none;
+  `}
 `
 const TabItemWrap = styled.li<{isSelect: boolean}>`
   font-size: 16px;
@@ -71,13 +79,18 @@ const TabItemWrap = styled.li<{isSelect: boolean}>`
 `
 const WorkLayout = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(auto, 100%));
   grid-gap: 32px;
-  margin: 24px;
+  padding: 24px;
+  ${({theme}) => theme.media.tablet`
+       grid-template-columns: repeat(2, minmax(auto, 100%));
+  `}
+  ${({theme}) => theme.media.mobile`
+       grid-template-columns: repeat(1, minmax(auto, 100%));
+  `}
 `
 const WorkItemWrap = styled.div`
   position: relative;
-  height: 250px;
   border-radius: 22px;
   overflow: hidden;
   box-shadow: 1px 1px 16px #cccccc;

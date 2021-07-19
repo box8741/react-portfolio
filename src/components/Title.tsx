@@ -8,11 +8,12 @@ import theme from '../theme/marterialTheme'
 
 type Props = {
   children: ReactNode
+  style?: React.CSSProperties
 }
 
-const Title = ({children}: Props) => {
+const Title = ({children, style}: Props) => {
   return (
-    <TitleText>
+    <TitleText style={style}>
       <TitleImg src={'https://cdn.pixabay.com/photo/2019/04/10/11/56/watercolour-4116932_1280.png'} />
       {children}
     </TitleText>
