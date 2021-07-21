@@ -95,7 +95,7 @@ const ExpeWrap = styled.div`
 `
 const ExpeLine = styled.div`
   height: 100%;
-  width: 6px;
+  min-width: 4px;
   background: ${({theme}) => theme.color.background.primary};
   border-radius: 32px;
   margin-right: 24px;
