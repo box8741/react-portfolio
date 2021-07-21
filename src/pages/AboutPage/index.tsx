@@ -142,7 +142,6 @@ const InfoText = styled.div`
   line-height: 28px;
   letter-spacing: 1px;
   word-break: normal;
-  line-height: 28px;
   letter-spacing: 1px;
   ${({theme}) => theme.media.tablet`
       margin-bottom: 18px;

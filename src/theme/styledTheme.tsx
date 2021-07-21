@@ -30,6 +30,10 @@ const color = {
     primary: '#353451',
     default: '#F9F9FE',
   },
+  font: {
+    primary: '#45435E',
+    light: '#5e5c7f',
+  },
 }
 
 export const theme = {

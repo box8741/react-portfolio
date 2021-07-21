@@ -10,6 +10,7 @@ import NotFoundPage from '../pages/NotFoundPage'
 // pages
 import HomePage from '../pages/HomePage'
 import AboutPage from '../pages/AboutPage'
+import ExperiencePage from '../pages/ExperiencePage'
 import WorksPage from '../pages/WorksPage'
 
 const MainRouter = (props: RouteComponentProps) => {
@@ -19,6 +20,7 @@ const MainRouter = (props: RouteComponentProps) => {
     <Switch>
       <Route path={`${match.url}`} exact component={HomePage} />
       <Route path={`${match.url}/about`} component={AboutPage} />
+      <Route path={`${match.url}/experience`} component={ExperiencePage} />
       <Route path={`${match.url}/works`} component={WorksPage} />
     </Switch>
   )

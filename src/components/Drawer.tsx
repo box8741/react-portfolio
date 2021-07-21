@@ -30,17 +30,13 @@ const Drawer = (props: Props) => {
               <AboutIcon />
               About
             </Item>
+            <Item onClick={() => history.push('/main/experience')}>
+              <ExperienceIcon />
+              Experience
+            </Item>
             <Item onClick={() => history.push('/main/works')}>
               <WorksIcon />
               Works
-            </Item>
-            <Item>
-              <ServicesIcon />
-              Services
-            </Item>
-            <Item>
-              <BlogIcon />
-              Blog
             </Item>
           </ItemLayout>
         </div>
@@ -131,13 +127,10 @@ const HomeIcon = styled(Icon.HomeOutlined)`
 const AboutIcon = styled(Icon.HomeOutlined)`
   ${tabIcon}
 `
-const ServicesIcon = styled(Icon.HomeOutlined)`
+const ExperienceIcon = styled(Icon.HomeOutlined)`
   ${tabIcon}
 `
 const WorksIcon = styled(Icon.HomeOutlined)`
-  ${tabIcon}
-`
-const BlogIcon = styled(Icon.HomeOutlined)`
   ${tabIcon}
 `
 const Etc = styled.span`
