@@ -13,7 +13,7 @@ const WorksPage = () => {
 
   return (
     <Layout>
-      <Title style={{marginTop: '80px'}}>Recent Works</Title>
+      <Title>Recent Works</Title>
       <TabLayout>
         {tabList.map((i, j) => (
           <TabItemWrap
@@ -56,7 +56,7 @@ const Layout = styled.div`
   min-height: 100%;
   max-width: ${({theme}) => `${theme.size.desktop}px`};
   align-self: center;
-  padding-top: 24px;
+  margin: 60px 0;
 `
 const TabLayout = styled.ul`
   display: flex;
