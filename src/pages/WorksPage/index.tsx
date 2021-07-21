@@ -5,22 +5,17 @@ import styled, {css, keyframes} from 'styled-components/macro'
 import mkConst from '../../common/constants'
 import theme from '../../theme/marterialTheme'
 import {Title} from '../../components'
+import {workList} from '../../mock'
 
 const WorksPage = () => {
   const [tabIndex, setTabIndex] = useState(0)
-  const tabMock = [{name: 'Everything'}, {name: 'Creative'}, {name: 'Art'}, {name: 'Design'}, {name: 'Branding'}]
-  const workMock = [
-    {thum_img: '/assets/svgs/standard_main.svg'},
-    {thum_img: '/assets/images/monthly_main.png'},
-    {thum_img: '/assets/svgs/life_main.svg'},
-    {thum_img: '/assets/svgs/dosode_main.svg'},
-  ]
+  const tabList = [{name: 'All'}, {name: 'React'}, {name: 'React native'}, {name: 'Android'}]
 
   return (
     <Layout>
       <Title style={{marginTop: '80px'}}>Recent Works</Title>
       <TabLayout>
-        {tabMock.map((i, j) => (
+        {tabList.map((i, j) => (
           <TabItemWrap
             key={j}
             isSelect={tabIndex === j}
@@ -33,17 +28,22 @@ const WorksPage = () => {
         ))}
       </TabLayout>
       <WorkLayout>
-        {workMock.map((i, j) => {
-          return (
-            <WorkItemWrap key={j}>
-              <WorkItemThumb src={i.thum_img} />
-              <WorkItemDetail>
-                <DetailCategory>Art</DetailCategory>
-                <DetailText>Project Managment</DetailText>
-              </WorkItemDetail>
-            </WorkItemWrap>
-          )
-        })}
+        {workList
+          .filter((i, j) => {
+            if (tabList[tabIndex].name === 'All') return true
+            return i.type === tabList[tabIndex].name
+          })
+          .map((work, index) => {
+            return (
+              <WorkItemWrap key={work.project_name}>
+                <WorkItemThumb src={work.thum_img} />
+                <WorkItemDetail>
+                  <DetailCategory>{work.type}</DetailCategory>
+                  <DetailText>{work.project_name}</DetailText>
+                </WorkItemDetail>
+              </WorkItemWrap>
+            )
+          })}
       </WorkLayout>
     </Layout>
   )
@@ -52,8 +52,9 @@ const WorksPage = () => {
 const Layout = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 1024px;
+  width: 100%;
   min-height: 100%;
+  max-width: ${({theme}) => `${theme.size.desktop}px`};
   align-self: center;
   padding-top: 24px;
 `
@@ -82,14 +83,13 @@ const TabItemWrap = styled.li<{isSelect: boolean}>`
 const WorkLayout = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: minmax(0, 300px);
   grid-gap: 32px;
   padding: 24px;
   ${({theme}) => theme.media.tablet`
-       grid-template-columns: repeat(2, minmax(auto, 100%));
+       grid-template-columns: repeat(2, 1fr);
   `}
   ${({theme}) => theme.media.mobile`
-       grid-template-columns: repeat(1, minmax(auto, 100%));
+       grid-template-columns: repeat(1, 1fr);
   `}
 `
 const WorkItemDetail = styled.div`
@@ -129,6 +129,7 @@ const WorkItemWrap = styled.div`
   box-shadow: 1px 1px 16px #cccccc;
   background: transparent;
   cursor: pointer;
+  aspect-ratio: 1;
   &:hover ${WorkItemDetail} {
     opacity: 1;
     background: rgba(83, 109, 254, 0.8);

@@ -10,12 +10,12 @@ const sizes = {
 
 const media: Record<keyof typeof sizes, (l: TemplateStringsArray, ...p: string[]) => CSSProp> = {
   desktop: (literals: TemplateStringsArray, ...args: string[]): CSSProp => css`
-    @media only screen and (min-width: ${sizes.desktop}px) {
+    @media only screen and (max-width: ${sizes.desktop}px) {
       ${css(literals, ...args)}
     }
   `,
   tablet: (literals: TemplateStringsArray, ...args: string[]): CSSProp => css`
-    @media only screen and (max-width: ${sizes.tablet}px) and (min-width: ${sizes.mobile - 1}px) {
+    @media only screen and (max-width: ${sizes.tablet}px) {
       ${css(literals, ...args)}
     }
   `,
@@ -25,7 +25,6 @@ const media: Record<keyof typeof sizes, (l: TemplateStringsArray, ...p: string[]
     }
   `,
 }
-
 const color = {
   background: {
     primary: '#353451',
@@ -35,6 +34,7 @@ const color = {
 
 export const theme = {
   media,
+  size: sizes,
   color,
 }
 

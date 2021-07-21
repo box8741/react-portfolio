@@ -76,11 +76,12 @@ const AboutPage = () => {
 
 const Layout = styled.div`
   display: flex;
+  width: 100%;
+  max-width: ${({theme}) => `${theme.size.desktop}px`};
+  min-height: 100%;
   align-self: center;
   flex-direction: column;
   justify-content: center;
-  max-width: 1024px;
-  min-height: 100%;
   padding: 0px 36px;
   background: ${({theme}) => theme.color.background.default};
   ${({theme}) => theme.media.tablet`

@@ -70,7 +70,7 @@ const DrawerContent = styled.div<{isVisible: boolean}>`
   background: ${theme.palette.background.default};
   padding: 38px;
   border-right: 1px solid #4a4863;
-  transition: margin-left 0.4s ease-in-out;
+  transition: margin-left 0.2s ease-in-out;
   margin-left: -300px
     ${props =>
       props.isVisible &&
