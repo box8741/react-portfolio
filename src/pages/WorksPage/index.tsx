@@ -53,7 +53,6 @@ const Layout = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 100%;
   max-width: ${({theme}) => `${theme.size.desktop}px`};
   align-self: center;
   margin: 60px 0;
@@ -62,9 +61,6 @@ const TabLayout = styled.ul`
   display: flex;
   margin: 36px 0;
   ${({theme}) => theme.media.tablet`
-       display: none;
-  `}
-  ${({theme}) => theme.media.mobile`
        display: none;
   `}
 `

@@ -87,19 +87,12 @@ const Layout = styled.div`
   ${({theme}) => theme.media.tablet`
       justify-content: flex-start;
     `}
-  ${({theme}) => theme.media.mobile`
-      justify-content: flex-start;
-    `}
 `
 const Avatar = styled.img`
   width: 150px;
   height: 150px;
   margin-right: 34px;
   ${({theme}) => theme.media.tablet`
-      margin-bottom: 32px;
-      margin-right: 0px;
-    `}
-  ${({theme}) => theme.media.mobile`
       margin-bottom: 32px;
       margin-right: 0px;
     `}
@@ -110,10 +103,6 @@ const InfoLayout = styled.div`
   justify-content: space-between;
   margin: 32px 0px;
   ${({theme}) => theme.media.tablet`
-      flex-direction: column;
-      align-items: center;
-    `}
-  ${({theme}) => theme.media.mobile`
       flex-direction: column;
       align-items: center;
     `}
@@ -129,9 +118,6 @@ const InfoContentLayout = styled.div`
   ${({theme}) => theme.media.tablet`
       flex-direction: column;
     `}
-  ${({theme}) => theme.media.mobile`
-      flex-direction: column;
-    `}
 `
 const InfoText = styled.div`
   display: flex;
@@ -144,9 +130,6 @@ const InfoText = styled.div`
   word-break: normal;
   letter-spacing: 1px;
   ${({theme}) => theme.media.tablet`
-      margin-bottom: 18px;
-    `}
-  ${({theme}) => theme.media.mobile`
       margin-bottom: 18px;
     `}
 `
