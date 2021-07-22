@@ -1,7 +1,7 @@
 import {} from 'react'
 import {} from '@material-ui/core'
 import * as Icon from '@material-ui/icons'
-import styled from 'styled-components/macro'
+import styled, {keyframes, css} from 'styled-components/macro'
 
 import mkConst from '../../common/constants'
 import {Title} from '../../components'
@@ -10,14 +10,15 @@ type ExpeItemProps = {
   year: string
   title: string
   content: string
+  iconType?: 'school' | 'work'
 }
 
 const Experience = () => {
-  const _renderExpeItem = ({year, title, content}: ExpeItemProps) => {
+  const _renderExpeItem = ({year, title, content, iconType = 'school'}: ExpeItemProps) => {
     return (
       <>
         <ExpeYear>
-          <WorkIcon />
+          {iconType === 'school' ? <SchoolIcon /> : <WorkIcon />}
           {year}
         </ExpeYear>
         <ExpeTitle>{title}</ExpeTitle>
@@ -61,42 +62,49 @@ const Experience = () => {
               title: 'Experience',
               content:
                 'Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quoei simul congue exerci ad nec admodum perfecto.',
+              iconType: 'work',
             })}
             {_renderExpeItem({
               year: '2019 - 2020',
               title: 'Experience',
               content:
                 'Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quoei simul congue exerci ad nec admodum perfecto.',
+              iconType: 'work',
             })}
             {_renderExpeItem({
               year: '2019 - 2020',
               title: 'Experience',
               content:
                 'Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quoei simul congue exerci ad nec admodum perfecto.',
+              iconType: 'work',
             })}
             {_renderExpeItem({
               year: '2019 - 2020',
               title: 'Experience',
               content:
                 'Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quoei simul congue exerci ad nec admodum perfecto.',
+              iconType: 'work',
             })}
             {_renderExpeItem({
               year: '2019 - 2020',
               title: 'Experience',
               content:
                 'Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quoei simul congue exerci ad nec admodum perfecto.',
+              iconType: 'work',
             })}
             {_renderExpeItem({
               year: '2019 - 2020',
               title: 'Experience',
               content:
                 'Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quoei simul congue exerci ad nec admodum perfecto.',
+              iconType: 'work',
             })}
             {_renderExpeItem({
               year: '2019 - 2020',
               title: 'Experience',
               content:
                 'Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quoei simul congue exerci ad nec admodum perfecto.',
+              iconType: 'work',
             })}
           </ExpeTextWrap>
         </ExpeWrap>
@@ -105,6 +113,19 @@ const Experience = () => {
   )
 }
 
+const showFrame = keyframes`
+  0% { 
+    transform: translateY(60px);
+    opacity: 0;
+  },
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+`
+const showAnimation = css`
+  animation: 0.6s ${showFrame} ease-in-out;
+`
 const Layout = styled.div`
   display: flex;
   flex-direction: column;
@@ -130,10 +151,11 @@ const ExpeWrap = styled.div`
   padding: 24px;
   box-shadow: 1px 1px 32px #dddddd;
   border-radius: 16px;
+  ${showAnimation}
 `
 const ExpeLine = styled.div`
   min-width: 2px;
-  background: #ec5a65; // ${({theme}) => theme.color.background.primary};
+  background: ${({theme}) => theme.color.default.red}; // ${({theme}) => theme.color.background.primary};
   border-radius: 32px;
   margin-right: 24px;
 `
@@ -149,8 +171,12 @@ const ExpeYear = styled.span`
   margin-top: 20px;
 `
 const WorkIcon = styled(Icon.WorkOutlineOutlined)`
-  margin-right: 4px;
-  color: #ec5a65;
+  margin-right: 6px;
+  color: ${({theme}) => theme.color.default.red};
+`
+const SchoolIcon = styled(Icon.SchoolOutlined)`
+  margin-right: 6px;
+  color: ${({theme}) => theme.color.default.red};
 `
 const ExpeTitle = styled.span`
   position: relative;

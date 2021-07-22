@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useMemo} from 'react'
 import {} from '@material-ui/core'
 import styled, {css, keyframes} from 'styled-components/macro'
 
@@ -10,6 +10,13 @@ import {workList} from '../../mock'
 const WorksPage = () => {
   const [tabIndex, setTabIndex] = useState(0)
   const tabList = [{name: 'All'}, {name: 'React'}, {name: 'React native'}, {name: 'Android'}]
+
+  const workFilterList = useMemo(() => {
+    return workList.filter((i, j) => {
+      if (tabList[tabIndex].name === 'All') return true
+      return i.type === tabList[tabIndex].name
+    })
+  }, [tabIndex])
 
   return (
     <Layout>
@@ -28,32 +35,40 @@ const WorksPage = () => {
         ))}
       </TabLayout>
       <WorkLayout>
-        {workList
-          .filter((i, j) => {
-            if (tabList[tabIndex].name === 'All') return true
-            return i.type === tabList[tabIndex].name
-          })
-          .map((work, index) => {
-            return (
-              <WorkItemWrap key={work.project_name}>
-                <WorkItemThumb src={work.thum_img} />
-                <WorkItemDetail>
-                  <DetailCategory>{work.type}</DetailCategory>
-                  <DetailText>{work.project_name}</DetailText>
-                </WorkItemDetail>
-              </WorkItemWrap>
-            )
-          })}
+        {workFilterList.map((work, index) => {
+          return (
+            <WorkItemWrap key={work.project_name} index={index}>
+              <WorkItemThumb src={work.thum_img} />
+              <WorkItemDetail>
+                <DetailCategory>{work.type}</DetailCategory>
+                <DetailText>{work.project_name}</DetailText>
+              </WorkItemDetail>
+            </WorkItemWrap>
+          )
+        })}
       </WorkLayout>
     </Layout>
   )
 }
 
+const showFrame = keyframes`
+  0% { 
+    transform: translateY(60px);
+    opacity: 0;
+  },
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+`
+const showAnimation = (index: number) => css`
+  animation: 0.4s ${showFrame} ease-in-out backwards ${index / 10}s;
+`
 const Layout = styled.div`
   display: flex;
-  flex-direction: column;
   width: 100%;
   max-width: ${({theme}) => `${theme.size.desktop}px`};
+  flex-direction: column;
   align-self: center;
   margin: 60px 0;
 `
@@ -67,13 +82,13 @@ const TabLayout = styled.ul`
 const TabItemWrap = styled.li<{isSelect: boolean}>`
   font-size: 16px;
   font-weight: 900;
-  color: ${props => (props.isSelect ? '#ec5a65' : props.theme.color.background.primary)};
+  color: ${props => (props.isSelect ? props.theme.color.default.red : props.theme.color.background.primary)};
   margin-right: 24px;
   list-style: none;
   transition: color 0.3s ease-in-out;
   cursor: pointer;
   &:hover {
-    color: #ec5a65;
+    color: ${({theme}) => theme.color.default.red};
   }
 `
 const WorkLayout = styled.div`
@@ -99,7 +114,7 @@ const WorkItemDetail = styled.div`
 `
 const DetailCategory = styled.div`
   position: absolute;
-  background: #ec5a65;
+  background: ${({theme}) => theme.color.default.red};
   padding: 4px 10px;
   border-radius: 0 0 14px 14px;
   left: 20px;
@@ -118,7 +133,7 @@ const DetailText = styled.span`
   color: white;
   transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 `
-const WorkItemWrap = styled.div`
+const WorkItemWrap = styled.div<{index: number}>`
   position: relative;
   border-radius: 22px;
   overflow: hidden;
@@ -126,6 +141,7 @@ const WorkItemWrap = styled.div`
   background: transparent;
   cursor: pointer;
   aspect-ratio: 1;
+  ${({index}) => showAnimation(index)};
   &:hover ${WorkItemDetail} {
     opacity: 1;
     background: rgba(83, 109, 254, 0.8);

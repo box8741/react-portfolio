@@ -26,6 +26,9 @@ const media: Record<keyof typeof sizes, (l: TemplateStringsArray, ...p: string[]
   `,
 }
 const color = {
+  default: {
+    red: '#ec5a65',
+  },
   background: {
     primary: '#353451',
     default: '#F9F9FE',

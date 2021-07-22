@@ -46,7 +46,7 @@ const showFrame = keyframes`
   }
 `
 const showAnimation = css`
-  animation: 1s ${showFrame} ease-in-out;
+  animation: 0.6s ${showFrame} ease-in-out;
 `
 const Layout = styled.div`
   display: flex;
