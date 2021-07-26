@@ -1,18 +1,19 @@
-import {useEffect, useState, useMemo} from 'react'
-import {IconButton} from '@material-ui/core'
-import * as IonIcon from 'styled-icons/ionicons-solid'
+import * as React from 'react'
+import _ from 'lodash'
 import styled from 'styled-components'
+import * as IonIcon from 'styled-icons/ionicons-solid'
+import {IconButton} from '@material-ui/core'
 
 import mkConst from '../../common/constants'
 
 const SamplePage = () => {
-  const [index, setIndex] = useState(0)
-  const [isReverse, setReverse] = useState(false)
-  // const [isCursor, setCursor] = useState(true)
+  const [index, setIndex] = React.useState(0)
+  const [isReverse, setReverse] = React.useState(false)
+  // const [isCursor, setCursor] = React.useState(true)
   const subTitle = 'Front-End developer'
-  const aniSubTitle = useMemo(() => `I'm a ` + subTitle.substring(0, index), [index])
+  const aniSubTitle = React.useMemo(() => `I'm a ` + subTitle.substring(0, index), [index])
 
-  useEffect(() => {
+  React.useEffect(() => {
     const writerInterval = setInterval(() => {
       if (!isReverse) {
         if (subTitle.length - 1 >= index) {
@@ -27,7 +28,7 @@ const SamplePage = () => {
     return () => clearInterval(writerInterval)
   }, [index, isReverse])
 
-  // useEffect(() => {
+  // React.useEffect(() => {
   //   const cursurInterval = setInterval(() => {
   //     if (subTitle.length - 1 <= index) setCursor(!isCursur)
   //   }, 500)

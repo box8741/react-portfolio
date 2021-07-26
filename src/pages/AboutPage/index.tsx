@@ -1,4 +1,6 @@
-import styled, {css} from 'styled-components/macro'
+import * as React from 'react'
+import _ from 'lodash'
+import styled, {css} from 'styled-components'
 import * as SimpleIcon from 'styled-icons/simple-icons'
 
 import mkConst from '../../common/constants'

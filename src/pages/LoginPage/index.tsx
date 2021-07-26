@@ -1,12 +1,13 @@
-import {useState} from 'react'
+import * as React from 'react'
+import _ from 'lodash'
+import styled, {css, keyframes} from 'styled-components'
 import {TextField} from '@material-ui/core'
 import {RouteComponentProps} from 'react-router-dom'
-import styled, {css, keyframes} from 'styled-components'
 
 import mkConst from '../../common/constants'
 
 const LoginPage = (props: RouteComponentProps) => {
-  const [cert, setCert] = useState('')
+  const [cert, setCert] = React.useState('')
   const certSuccess = 'min'
   return (
     <Layout>

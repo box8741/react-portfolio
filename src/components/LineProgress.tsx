@@ -1,4 +1,6 @@
-import styled, {keyframes} from 'styled-components/macro'
+import * as React from 'react'
+import _ from 'lodash'
+import styled, {keyframes} from 'styled-components'
 
 import mkConst from '../common/constants'
 

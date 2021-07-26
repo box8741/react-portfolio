@@ -1,7 +1,7 @@
 import * as React from 'react'
 import _ from 'lodash'
-import {RouteComponentProps} from 'react-router-dom'
 import styled, {css} from 'styled-components'
+import {RouteComponentProps} from 'react-router-dom'
 
 import mkConst from '../../common/constants'
 import {Drawer, Header} from '../../components'

@@ -1,5 +1,7 @@
-import * as IonIcon from '@styled-icons/ionicons-outline'
+import * as React from 'react'
+import _ from 'lodash'
 import styled, {css} from 'styled-components'
+import * as IonIcon from '@styled-icons/ionicons-outline'
 import {RouteComponentProps, withRouter} from 'react-router-dom'
 
 import mkConst from '../common/constants'
@@ -12,6 +14,8 @@ type Props = RouteComponentProps & {
 
 const Drawer = (props: Props) => {
   const {isVisible, isMobile, setVisible, history} = props
+
+  React.useEffect(() => {}, [])
 
   const _drawerContent = () => {
     return (

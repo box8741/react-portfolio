@@ -1,5 +1,7 @@
-import * as IonIcons from 'styled-icons/ionicons-outline'
+import * as React from 'react'
+import _ from 'lodash'
 import styled, {keyframes, css} from 'styled-components'
+import * as IonIcons from 'styled-icons/ionicons-outline'
 
 import mkConst from '../../common/constants'
 import {Title} from '../../components'

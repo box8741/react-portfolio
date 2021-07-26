@@ -1,4 +1,5 @@
-import {useState, useMemo} from 'react'
+import * as React from 'react'
+import _ from 'lodash'
 import styled, {css, keyframes} from 'styled-components'
 
 import mkConst from '../../common/constants'
@@ -6,10 +7,10 @@ import {Title} from '../../components'
 import {workList} from '../../mock'
 
 const WorksPage = () => {
-  const [tabIndex, setTabIndex] = useState(0)
+  const [tabIndex, setTabIndex] = React.useState(0)
   const tabList = [{name: 'All'}, {name: 'React'}, {name: 'React native'}, {name: 'Android'}]
 
-  const workFilterList = useMemo(() => {
+  const workFilterList = React.useMemo(() => {
     return workList.filter((i, j) => {
       if (tabList[tabIndex].name === 'All') return true
       return i.type === tabList[tabIndex].name
