@@ -15,34 +15,35 @@ type Props = RouteComponentProps & {
 const Drawer = (props: Props) => {
   const {isVisible, isMobile, setVisible, history} = props
 
-  React.useEffect(() => {}, [])
+  const tabList = [
+    {name: 'Home', path: '/main/home', icon: () => <HomeIcon />},
+    {name: 'About', path: '/main/about', icon: () => <AboutIcon />},
+    {name: 'Experience', path: '/main/experience', icon: () => <ExperienceIcon />},
+    {name: 'Works', path: '/main/works', icon: () => <WorksIcon />},
+  ]
+
+  const activeRoute = (path: string) => {
+    return location.pathname.indexOf(path) > -1
+  }
 
   const _drawerContent = () => {
     return (
-      <>
+      <div>
         <div>
           <Logo>Min</Logo>
           <ItemLayout>
-            <Item onClick={() => history.push('/main')}>
-              <HomeIcon />
-              Home
-            </Item>
-            <Item onClick={() => history.push('/main/about')}>
-              <AboutIcon />
-              About
-            </Item>
-            <Item onClick={() => history.push('/main/experience')}>
-              <ExperienceIcon />
-              Experience
-            </Item>
-            <Item onClick={() => history.push('/main/works')}>
-              <WorksIcon />
-              Works
-            </Item>
+            {tabList.map((i, j) => {
+              return (
+                <Item key={j} onClick={() => history.push(i.path)} active={activeRoute(i.path)}>
+                  <i.icon />
+                  {i.name}
+                </Item>
+              )
+            })}
           </ItemLayout>
         </div>
         <Etc>© 2021 Min Portfolio</Etc>
-      </>
+      </div>
     )
   }
 
@@ -59,7 +60,7 @@ const DrawerContent = styled.div<{isVisible: boolean}>`
   position: absolute;
   left: 0;
   top: 0;
-  width: 300px;
+  min-width: 300px;
   min-height: 100vh;
   flex-direction: column;
   justify-content: space-between;
@@ -104,7 +105,13 @@ const Logo = styled.div`
 const ItemLayout = styled.div`
   margin: 130px 0px;
 `
-const Item = styled.div`
+const tabIcon = css`
+  width: 20px;
+  height: 20px;
+  color: ${({theme}) => theme.color.font.secondary};
+  margin-right: 16px;
+`
+const Item = styled.div<{active?: boolean}>`
   display: flex;
   align-items: center;
   font-size: 16px;
@@ -113,15 +120,14 @@ const Item = styled.div`
   margin-bottom: 26px;
   cursor: pointer;
   transition: color 200ms;
+  ${({active}) =>
+    active &&
+    css`
+      color: ${({theme}) => theme.color.font.secondary};
+    `}
   &:hover {
-    color: ${({theme}) => theme.color.font.secondary};
+    color: ${({theme}) => theme.color.font.secondary}aa;
   }
-`
-const tabIcon = css`
-  width: 20px;
-  height: 20px;
-  color: ${({theme}) => theme.color.font.secondary};
-  margin-right: 16px;
 `
 const HomeIcon = styled(IonIcon.Home)`
   ${tabIcon}
