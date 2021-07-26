@@ -1,10 +1,7 @@
-import {useEffect, useState, useMemo} from 'react'
-import {IconButton, useMediaQuery} from '@material-ui/core'
-import * as Icon from '@material-ui/icons'
-import styled, {keyframes} from 'styled-components/macro'
+import styled, {css} from 'styled-components/macro'
+import * as SimpleIcon from 'styled-icons/simple-icons'
 
 import mkConst from '../../common/constants'
-import theme from '../../theme/marterialTheme'
 import {Title, LineProgress} from '../../components'
 
 const AboutPage = () => {
@@ -41,34 +38,13 @@ const AboutPage = () => {
       </InfoLayout>
 
       <ItemLayout>
-        <ItemWrap>
-          <Icon.Whatshot style={{fontSize: 42, color: '#bbbbbb', marginRight: 18}} />
-          <ItemTextLayout>
-            <ItemNumber>356</ItemNumber>
-            <ItemName>완료된 프로젝트</ItemName>
-          </ItemTextLayout>
-        </ItemWrap>
-        <ItemWrap>
-          <Icon.LocalCafe style={{fontSize: 42, color: '#bbbbbb', marginRight: 18}} />
-          <ItemTextLayout>
-            <ItemNumber>480</ItemNumber>
-            <ItemName>마신 커피수</ItemName>
-          </ItemTextLayout>
-        </ItemWrap>
-        <ItemWrap>
-          <Icon.Whatshot style={{fontSize: 42, color: '#bbbbbb', marginRight: 18}} />
-          <ItemTextLayout>
-            <ItemNumber>356</ItemNumber>
-            <ItemName>완료된 프로젝트</ItemName>
-          </ItemTextLayout>
-        </ItemWrap>
-        <ItemWrap>
-          <Icon.Whatshot style={{fontSize: 42, color: '#bbbbbb', marginRight: 18}} />
-          <ItemTextLayout>
-            <ItemNumber>356</ItemNumber>
-            <ItemName>완료된 프로젝트</ItemName>
-          </ItemTextLayout>
-        </ItemWrap>
+        <JavascriptIcon />
+        <Html5Icon />
+        <Css3Icon />
+        <TypescriptIcon />
+        <ReactLogoIcon />
+        <JavaIcon />
+        <AndroidIcon />
       </ItemLayout>
     </Layout>
   )
@@ -123,7 +99,7 @@ const InfoText = styled.div`
   display: flex;
   flex: 1;
   font-size: 16px;
-  color: ${theme.palette.text.secondary};
+  color: ${({theme}) => theme.color.font.primary};
   margin-right: 28px;
   line-height: 28px;
   letter-spacing: 1px;
@@ -152,11 +128,11 @@ const GraphItemInfoWrap = styled.div`
 const GraphItemTitle = styled.span`
   font-size: 16px;
   font-weight: 800;
-  color: ${theme.palette.primary.light};
+  color: ${({theme}) => theme.color.font.primary};
 `
 const GraphItemPercentText = styled.span`
   font-size: 14px;
-  color: ${theme.palette.primary.light};
+  color: ${({theme}) => theme.color.font.primary};
 `
 const GraphItemProgress = styled(LineProgress)`
   margin-top: 12px;
@@ -164,33 +140,39 @@ const GraphItemProgress = styled(LineProgress)`
 const ItemLayout = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  grid-gap: 60px 12px;
   margin-top: 32px;
-  padding: 0px 24px;
-  ${({theme}) => theme.media.tablet`
+  ${({theme}) => theme.media.mobile`
     grid-template-columns: repeat(2, 1fr);
   `}
-  ${({theme}) => theme.media.mobile`
-    grid-template-columns: repeat(1, 1fr);
-  `}
 `
-const ItemWrap = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-bottom: 16px;
+const IconStyle = css`
+  width: 50px;
+  height: 50px;
+  color: black;
+  opacity: 0.25;
+  justify-self: center;
 `
-const ItemTextLayout = styled.div`
-  display: flex;
-  flex-direction: column;
+const JavascriptIcon = styled(SimpleIcon.Javascript)`
+  ${IconStyle}
 `
-const ItemNumber = styled.span`
-  font-size: 32px;
-  font-weight: 900;
-  color: ${theme.palette.primary.light};
+const Html5Icon = styled(SimpleIcon.Html5)`
+  ${IconStyle}
 `
-const ItemName = styled.span`
-  font-size: 14px;
-  color: ${theme.palette.primary.light};
+const Css3Icon = styled(SimpleIcon.Css3)`
+  ${IconStyle}
+`
+const TypescriptIcon = styled(SimpleIcon.Typescript)`
+  ${IconStyle}
+`
+const JavaIcon = styled(SimpleIcon.Java)`
+  ${IconStyle}
+`
+const ReactLogoIcon = styled(SimpleIcon.ReactLogo)`
+  ${IconStyle}
+`
+const AndroidIcon = styled(SimpleIcon.Android)`
+  ${IconStyle}
 `
 
 export default AboutPage

@@ -1,10 +1,9 @@
 import {useEffect, useState, useMemo} from 'react'
 import {IconButton} from '@material-ui/core'
 import * as Icon from '@material-ui/icons'
-import styled, {keyframes} from 'styled-components/macro'
+import styled from 'styled-components'
 
 import mkConst from '../../common/constants'
-import theme from '../../theme/marterialTheme'
 
 const SamplePage = () => {
   const [index, setIndex] = useState(0)

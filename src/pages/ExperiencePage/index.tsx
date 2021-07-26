@@ -1,7 +1,5 @@
-import {} from 'react'
-import {} from '@material-ui/core'
 import * as Icon from '@material-ui/icons'
-import styled, {keyframes, css} from 'styled-components/macro'
+import styled, {keyframes, css} from 'styled-components'
 
 import mkConst from '../../common/constants'
 import {Title} from '../../components'

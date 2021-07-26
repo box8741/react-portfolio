@@ -1,10 +1,6 @@
-import {ReactNode, useState} from 'react'
-import {IconButton} from '@material-ui/core'
-import * as Icon from '@material-ui/icons'
 import styled, {keyframes} from 'styled-components/macro'
 
 import mkConst from '../common/constants'
-import theme from '../theme/marterialTheme'
 
 type Props = {
   className?: string

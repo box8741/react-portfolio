@@ -1,20 +1,18 @@
-import {useState, useEffect, useCallback} from 'react'
+import * as React from 'react'
 import _ from 'lodash'
-import {RouteComponentProps, Route, Switch, withRouter} from 'react-router-dom'
-import styled, {css} from 'styled-components/macro'
-import {MuiThemeProvider, makeStyles} from '@material-ui/core'
+import {RouteComponentProps} from 'react-router-dom'
+import styled, {css} from 'styled-components'
 
 import mkConst from '../../common/constants'
-import theme from '../../theme/marterialTheme'
 import {Drawer, Header} from '../../components'
 
 import MainRouter from '../../router/MainRouter'
 
 const MainPage = (props: RouteComponentProps) => {
-  const [isVisible, setVisible] = useState(!(innerWidth <= 1024))
-  const [isMobile, setMobile] = useState(innerWidth <= 1024)
+  const [isVisible, setVisible] = React.useState(!(innerWidth <= 1024))
+  const [isMobile, setMobile] = React.useState(innerWidth <= 1024)
 
-  useEffect(() => {
+  React.useEffect(() => {
     setVisible(!isMobile)
   }, [isMobile])
 
@@ -22,7 +20,7 @@ const MainPage = (props: RouteComponentProps) => {
     setMobile(innerWidth <= 1024)
   }, 32)
 
-  useEffect(() => {
+  React.useEffect(() => {
     addEventListener('resize', handleResize)
     return () => removeEventListener('resize', handleResize)
   }, [])
@@ -43,7 +41,7 @@ const Layout = styled.div`
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  background: ${theme.palette.background.paper};
+  background: ${({theme}) => theme.color.background.default};
 `
 const MainLayout = styled.div<{isVisible: boolean; isMobile: boolean}>`
   display: flex;

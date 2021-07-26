@@ -1,13 +1,10 @@
-import {ReactNode, useState} from 'react'
 import {IconButton} from '@material-ui/core'
-import * as Icon from '@material-ui/icons'
-import styled, {css} from 'styled-components/macro'
+import styled from 'styled-components'
 
 import mkConst from '../common/constants'
-import theme from '../theme/marterialTheme'
 
 type Props = {
-  children: ReactNode
+  children: React.ReactNode
   style?: React.CSSProperties
 }
 
@@ -23,7 +20,7 @@ const TitleText = styled.div`
   position: relative;
   font-size: 38px;
   font-weight: 900;
-  color: ${theme.palette.background.default};
+  color: ${({theme}) => theme.color.font.primary};
   margin: 28px;
 `
 const TitleImg = styled.img`

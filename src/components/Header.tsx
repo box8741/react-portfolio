@@ -1,11 +1,9 @@
-import {useState} from 'react'
 import {IconButton} from '@material-ui/core'
 import * as Icon from '@material-ui/icons'
-import styled, {css} from 'styled-components/macro'
+import styled from 'styled-components'
 import {RouteComponentProps, withRouter} from 'react-router-dom'
 
 import mkConst from '../common/constants'
-import theme from '../theme/marterialTheme'
 
 type Props = RouteComponentProps & {
   onDrawerVisible: React.Dispatch<React.SetStateAction<boolean>>
@@ -31,7 +29,7 @@ const Layout = styled.div`
   left: 0;
   align-items: center;
   height: 80px;
-  background: ${theme.palette.background.default};
+  background: ${({theme}) => theme.color.background.primary};
   padding: 12px 18px;
 `
 const Logo = styled.div`

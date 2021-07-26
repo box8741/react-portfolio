@@ -1,9 +1,7 @@
 import {useState} from 'react'
 import {TextField} from '@material-ui/core'
 import {RouteComponentProps} from 'react-router-dom'
-import styled, {css, keyframes} from 'styled-components/macro'
-
-import theme from '../../theme/marterialTheme'
+import styled, {css, keyframes} from 'styled-components'
 
 import mkConst from '../../common/constants'
 

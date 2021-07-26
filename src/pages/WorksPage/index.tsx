@@ -1,9 +1,7 @@
 import {useState, useMemo} from 'react'
-import {} from '@material-ui/core'
-import styled, {css, keyframes} from 'styled-components/macro'
+import styled, {css, keyframes} from 'styled-components'
 
 import mkConst from '../../common/constants'
-import theme from '../../theme/marterialTheme'
 import {Title} from '../../components'
 import {workList} from '../../mock'
 

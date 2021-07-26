@@ -1,11 +1,8 @@
-import {useState} from 'react'
-import {Drawer as MarterialDrawer} from '@material-ui/core'
 import * as Icon from '@material-ui/icons'
 import styled, {css} from 'styled-components/macro'
 import {RouteComponentProps, withRouter} from 'react-router-dom'
 
 import mkConst from '../common/constants'
-import theme from '../theme/marterialTheme'
 
 type Props = RouteComponentProps & {
   isVisible: boolean
@@ -63,7 +60,7 @@ const DrawerContent = styled.div<{isVisible: boolean}>`
   flex-direction: column;
   justify-content: space-between;
   z-index: 1;
-  background: ${theme.palette.background.default};
+  background: ${({theme}) => theme.color.background.primary};
   padding: 38px;
   border-right: 1px solid #4a4863;
   transition: margin-left 0.2s ease-in-out;
@@ -113,13 +110,13 @@ const Item = styled.div`
   cursor: pointer;
   transition: color 200ms;
   &:hover {
-    color: ${theme.palette.secondary.main};
+    color: ${({theme}) => theme.color.font.secondary};
   }
 `
 const tabIcon = css`
   font-size: 24px;
   margin-right: 16px;
-  color: ${theme.palette.secondary.main};
+  color: ${({theme}) => theme.color.font.secondary};
 `
 const HomeIcon = styled(Icon.HomeOutlined)`
   ${tabIcon}

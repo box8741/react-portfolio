@@ -1,4 +1,4 @@
-import {css, CSSProp, DefaultTheme} from 'styled-components'
+import {css, CSSProp} from 'styled-components'
 
 import mkConst from '../common/constants'
 
@@ -35,6 +35,7 @@ const color = {
   },
   font: {
     primary: '#45435E',
+    secondary: '#fdd835',
     light: '#5e5c7f',
   },
 }
