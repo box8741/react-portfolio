@@ -1,4 +1,4 @@
-import {} from 'react'
+import * as React from 'react'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import {MuiThemeProvider} from '@material-ui/core'
 

@@ -1,11 +1,8 @@
+import * as React from 'react'
 import Router from './router/Router'
 
 const App = () => {
-  return (
-    <>
-      <Router />
-    </>
-  )
+  return <Router />
 }
 
 export default App
