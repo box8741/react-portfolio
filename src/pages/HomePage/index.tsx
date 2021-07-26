@@ -1,6 +1,6 @@
 import {useEffect, useState, useMemo} from 'react'
 import {IconButton} from '@material-ui/core'
-import * as Icon from '@material-ui/icons'
+import * as IonIcon from 'styled-icons/ionicons-solid'
 import styled from 'styled-components'
 
 import mkConst from '../../common/constants'
@@ -40,7 +40,7 @@ const SamplePage = () => {
       <Title>Minkuk Park</Title>
       <SubTitle>{aniSubTitle}</SubTitle>
       <IconButton target="_Blink" href="https://github.com/box8741/react-portfolio">
-        <Icon.GitHub style={{color: 'white'}} />
+        <GithubIcon />
       </IconButton>
     </Layout>
   )
@@ -70,8 +70,9 @@ const SubTitle = styled.span`
   color: white;
   margin-bottom: 24px;
 `
-const PageIcon = styled.img`
-  width: 28px;
-  height: 28px;
+const GithubIcon = styled(IonIcon.LogoGithub)`
+  width: 32px;
+  height: 32px;
+  color: white;
 `
 export default SamplePage

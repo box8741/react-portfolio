@@ -1,5 +1,5 @@
-import * as Icon from '@material-ui/icons'
-import styled, {css} from 'styled-components/macro'
+import * as IonIcon from '@styled-icons/ionicons-outline'
+import styled, {css} from 'styled-components'
 import {RouteComponentProps, withRouter} from 'react-router-dom'
 
 import mkConst from '../common/constants'
@@ -17,7 +17,7 @@ const Drawer = (props: Props) => {
     return (
       <>
         <div>
-          <Logo>Logo</Logo>
+          <Logo>Min</Logo>
           <ItemLayout>
             <Item onClick={() => history.push('/main')}>
               <HomeIcon />
@@ -106,7 +106,7 @@ const Item = styled.div`
   font-size: 16px;
   font-weight: bold;
   color: white;
-  margin-bottom: 20px;
+  margin-bottom: 26px;
   cursor: pointer;
   transition: color 200ms;
   &:hover {
@@ -114,20 +114,21 @@ const Item = styled.div`
   }
 `
 const tabIcon = css`
-  font-size: 24px;
-  margin-right: 16px;
+  width: 20px;
+  height: 20px;
   color: ${({theme}) => theme.color.font.secondary};
+  margin-right: 16px;
 `
-const HomeIcon = styled(Icon.HomeOutlined)`
+const HomeIcon = styled(IonIcon.Home)`
   ${tabIcon}
 `
-const AboutIcon = styled(Icon.HomeOutlined)`
+const AboutIcon = styled(IonIcon.Person)`
   ${tabIcon}
 `
-const ExperienceIcon = styled(Icon.HomeOutlined)`
+const ExperienceIcon = styled(IonIcon.School)`
   ${tabIcon}
 `
-const WorksIcon = styled(Icon.HomeOutlined)`
+const WorksIcon = styled(IonIcon.Layers)`
   ${tabIcon}
 `
 const Etc = styled.span`

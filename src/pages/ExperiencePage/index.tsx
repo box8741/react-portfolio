@@ -1,4 +1,4 @@
-import * as Icon from '@material-ui/icons'
+import * as IonIcons from 'styled-icons/ionicons-outline'
 import styled, {keyframes, css} from 'styled-components'
 
 import mkConst from '../../common/constants'
@@ -168,13 +168,17 @@ const ExpeYear = styled.span`
   color: ${({theme}) => theme.color.font.light};
   margin-top: 20px;
 `
-const WorkIcon = styled(Icon.WorkOutlineOutlined)`
+const IconStyle = css`
+  width: 22px;
+  height: 22px;
   margin-right: 6px;
   color: ${({theme}) => theme.color.default.red};
 `
-const SchoolIcon = styled(Icon.SchoolOutlined)`
-  margin-right: 6px;
-  color: ${({theme}) => theme.color.default.red};
+const WorkIcon = styled(IonIcons.Briefcase)`
+  ${IconStyle}
+`
+const SchoolIcon = styled(IonIcons.School)`
+  ${IconStyle}
 `
 const ExpeTitle = styled.span`
   position: relative;

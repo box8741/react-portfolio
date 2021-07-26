@@ -7,6 +7,7 @@ import theme from '../theme/marterialTheme'
 
 // error pages
 import NotFoundPage from '../pages/NotFoundPage'
+
 // pages
 import LoginPage from '../pages/LoginPage'
 import MainPage from '../pages/MainPage'

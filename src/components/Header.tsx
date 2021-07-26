@@ -1,5 +1,5 @@
 import {IconButton} from '@material-ui/core'
-import * as Icon from '@material-ui/icons'
+import * as IonIcon from 'styled-icons/ionicons-outline'
 import styled from 'styled-components'
 import {RouteComponentProps, withRouter} from 'react-router-dom'
 
@@ -17,7 +17,7 @@ const Header = (props: Props) => {
       <IconButton onClick={() => onDrawerVisible(true)}>
         <MenuIcon />
       </IconButton>
-      <Logo>Logo</Logo>
+      <Logo>Min</Logo>
     </Layout>
   )
 }
@@ -38,9 +38,10 @@ const Logo = styled.div`
   color: white;
   margin-left: 16px;
 `
-const MenuIcon = styled(Icon.Notes)`
+const MenuIcon = styled(IonIcon.Menu)`
+  width: 36px;
+  height: 36px;
   color: white;
-  font-size: 34px;
 `
 
 export default withRouter(Header)
