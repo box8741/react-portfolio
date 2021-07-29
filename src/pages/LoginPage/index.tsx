@@ -5,9 +5,12 @@ import {TextField} from '@material-ui/core'
 import {RouteComponentProps} from 'react-router-dom'
 
 import mkConst from '../../common/constants'
+import action from '../../redux/action'
+import {useAppSelector, useAppDispatch} from '../../hooks/useRedux'
 
 const LoginPage = (props: RouteComponentProps) => {
   const [cert, setCert] = React.useState('')
+
   const certSuccess = 'min'
   return (
     <Layout>
@@ -23,9 +26,9 @@ const LoginPage = (props: RouteComponentProps) => {
         <LoginButton
           onClick={() => {
             // if (cert !== certSuccess) alert('인증번호가 일치하지 않습니다.')
-            // else props.history.push('/main')
-            // else window.location.href = '/main'
-            window.location.href = '/main'
+            props.history.push('/main')
+            // window.location.href = '/main'
+            // window.location.href = '/main'
           }}
         >
           접속하기

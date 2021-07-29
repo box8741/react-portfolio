@@ -5,6 +5,8 @@ import * as IonIcon from 'styled-icons/ionicons-solid'
 import {IconButton} from '@material-ui/core'
 
 import mkConst from '../../common/constants'
+import action from '../../redux/action'
+import {useAppSelector, useAppDispatch} from '../../hooks/useRedux'
 
 const SamplePage = () => {
   const [index, setIndex] = React.useState(0)
@@ -37,7 +39,7 @@ const SamplePage = () => {
 
   return (
     <Layout>
-      <ProfileImg src={'/assets/images/avatar.png'} />
+      <ProfileImg src={'/assets/svgs/avatar.svg'} />
       <Title>Minkuk Park</Title>
       <SubTitle>{aniSubTitle}</SubTitle>
       <IconButton target="_Blink" href="https://github.com/box8741/react-portfolio">
@@ -62,9 +64,9 @@ const Layout = styled.div`
   background: ${({theme}) => theme.color.background.primary};
 `
 const ProfileImg = styled.img`
-  width: 120px;
-  height: 120px;
-  margin-bottom: 18px;
+  width: 140px;
+  height: 140px;
+  margin-right: 10px;
 `
 const Title = styled.span`
   font-size: 38px;
@@ -77,7 +79,7 @@ const SubTitle = styled.span`
   margin-bottom: 24px;
   &::after {
     content: '|';
-    animation: ${CursurAnimation} 1s ease-in-out infinite;
+    animation: ${CursurAnimation} 0.8s ease-in-out infinite;
   }
 `
 const GithubIcon = styled(IonIcon.LogoGithub)`

@@ -4,6 +4,8 @@ import styled, {keyframes, css} from 'styled-components'
 import * as IonIcons from 'styled-icons/ionicons-outline'
 
 import mkConst from '../../common/constants'
+import action from '../../redux/action'
+import {useAppSelector, useAppDispatch} from '../../hooks/useRedux'
 import {Title} from '../../components'
 
 type ExpeItemProps = {
@@ -173,7 +175,7 @@ const ExpeYear = styled.span`
 const IconStyle = css`
   width: 22px;
   height: 22px;
-  margin-right: 6px;
+  margin-right: 10px;
   color: ${({theme}) => theme.color.default.red};
 `
 const WorkIcon = styled(IonIcons.Briefcase)`

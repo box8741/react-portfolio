@@ -4,8 +4,9 @@ import styled, {css} from 'styled-components'
 import {RouteComponentProps} from 'react-router-dom'
 
 import mkConst from '../../common/constants'
+import action from '../../redux/action'
+import {useAppSelector, useAppDispatch} from '../../hooks/useRedux'
 import {Drawer, Header} from '../../components'
-
 import MainRouter from '../../router/MainRouter'
 
 const MainPage = (props: RouteComponentProps) => {

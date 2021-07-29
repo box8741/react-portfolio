@@ -3,6 +3,8 @@ import _ from 'lodash'
 import styled from 'styled-components'
 
 import mkConst from '../../common/constants'
+import action from '../../redux/action'
+import {useAppSelector, useAppDispatch} from '../../hooks/useRedux'
 
 const ErrorPage = () => {
   return (

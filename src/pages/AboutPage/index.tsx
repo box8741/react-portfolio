@@ -4,6 +4,8 @@ import styled, {css} from 'styled-components'
 import * as SimpleIcon from 'styled-icons/simple-icons'
 
 import mkConst from '../../common/constants'
+import action from '../../redux/action'
+import {useAppSelector, useAppDispatch} from '../../hooks/useRedux'
 import {Title, LineProgress} from '../../components'
 
 const AboutPage = () => {
@@ -12,7 +14,7 @@ const AboutPage = () => {
       <Title>About Me</Title>
 
       <InfoLayout>
-        <Avatar src={'/assets/images/avatar.png'} />
+        <Avatar src={'/assets/svgs/avatar.svg'} />
         <InfoContentLayout>
           <InfoText>
             Dolore irure id do culpa proident exercitation sint sunt. Adipisicing proident ex et enim incididunt aliqua
@@ -67,8 +69,9 @@ const Layout = styled.div`
     `}
 `
 const Avatar = styled.img`
-  width: 150px;
-  height: 150px;
+  width: 160px;
+  height: 160px;
+  margin-top: 18px;
   margin-right: 34px;
   ${({theme}) => theme.media.tablet`
       margin-bottom: 32px;
@@ -143,7 +146,7 @@ const ItemLayout = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 60px 12px;
-  margin-top: 32px;
+  margin-top: 48px;
   ${({theme}) => theme.media.mobile`
     grid-template-columns: repeat(2, 1fr);
   `}
