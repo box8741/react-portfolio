@@ -28,7 +28,7 @@ const Drawer = (props: Props) => {
 
   const _drawerContent = () => {
     return (
-      <div>
+      <>
         <div>
           <Logo>Min</Logo>
           <ItemLayout>
@@ -43,7 +43,7 @@ const Drawer = (props: Props) => {
           </ItemLayout>
         </div>
         <Etc>© 2021 Min Portfolio</Etc>
-      </div>
+      </>
     )
   }
 

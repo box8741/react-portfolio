@@ -10,27 +10,25 @@ type Props = {
 }
 
 const Title = ({children, style}: Props) => {
-  return (
-    <TitleText style={style}>
-      <TitleImg src={'https://cdn.pixabay.com/photo/2019/04/10/11/56/watercolour-4116932_1280.png'} />
-      {children}
-    </TitleText>
-  )
+  return <TitleText style={style}>{children}</TitleText>
 }
+
 const TitleText = styled.div`
   position: relative;
   font-size: 38px;
   font-weight: 900;
   color: ${({theme}) => theme.color.font.primary};
-  margin: 28px;
-`
-const TitleImg = styled.img`
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  left: -25px;
-  top: -15px;
-  opacity: 0.4;
+  &::before {
+    display: block;
+    position: absolute;
+    content: '';
+    background: url('/assets/svgs/dot.svg');
+    object-fit: cover;
+    width: 37px;
+    height: 37px;
+    left: -14px;
+    top: -10px;
+  }
 `
 
 export default Title

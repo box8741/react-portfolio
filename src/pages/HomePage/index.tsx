@@ -1,6 +1,6 @@
 import * as React from 'react'
 import _ from 'lodash'
-import styled from 'styled-components'
+import styled, {keyframes} from 'styled-components'
 import * as IonIcon from 'styled-icons/ionicons-solid'
 import {IconButton} from '@material-ui/core'
 
@@ -47,6 +47,11 @@ const SamplePage = () => {
   )
 }
 
+const CursurAnimation = keyframes`
+  0%{opacity : 0}
+  50%{opacity : 1}
+  100%{opacity : 0}
+`
 const Layout = styled.div`
   display: flex;
   flex-direction: column;
@@ -70,10 +75,14 @@ const SubTitle = styled.span`
   font-size: 18px;
   color: white;
   margin-bottom: 24px;
+  &::after {
+    content: '|';
+    animation: ${CursurAnimation} 1s ease-in-out infinite;
+  }
 `
 const GithubIcon = styled(IonIcon.LogoGithub)`
   width: 32px;
   height: 32px;
   color: white;
 `
-export default SamplePage
+export default React.memo(SamplePage)
