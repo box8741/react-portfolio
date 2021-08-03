@@ -5,11 +5,12 @@ import styled, {css, keyframes} from 'styled-components'
 import mkConst from '../../common/constants'
 import action from '../../redux/action'
 import {useAppSelector, useAppDispatch} from '../../hooks/useRedux'
-import {Title} from '../../components'
+import {Title, Modal} from '../../components'
 import {workList} from '../../mock'
 
 const WorksPage = () => {
   const [tabIndex, setTabIndex] = React.useState(0)
+  const [isVisible, setVisible] = React.useState(false)
   const tabList = [{name: 'All'}, {name: 'React'}, {name: 'React native'}, {name: 'Android'}]
 
   const workFilterList = React.useMemo(() => {
@@ -38,7 +39,7 @@ const WorksPage = () => {
       <WorkLayout>
         {workFilterList.map((work, index) => {
           return (
-            <WorkItemWrap key={work.project_name} index={index}>
+            <WorkItemWrap onClick={() => setVisible(true)} key={work.project_name} index={index}>
               <WorkItemThumb src={work.thum_img} />
               <WorkItemDetail>
                 <DetailCategory>{work.type}</DetailCategory>
@@ -48,6 +49,105 @@ const WorksPage = () => {
           )
         })}
       </WorkLayout>
+      <Modal isVisible={isVisible} onHide={() => setVisible(false)}>
+        <div>11111</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>11111</div>
+      </Modal>
     </Layout>
   )
 }
