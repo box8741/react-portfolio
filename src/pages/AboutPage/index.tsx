@@ -34,9 +34,10 @@ const AboutPage = () => {
         <Avatar src={'/assets/svgs/avatar.svg'} />
         <InfoContentLayout>
           <InfoText>
-            Dolore irure id do culpa proident exercitation sint sunt. Adipisicing proident ex et enim incididunt aliqua
-            tempor velit. Commodo in Lorem fugiat laboris deserunt. Aliqua duis excepteur aliquip minim magna fugiat
-            안녕하세요 저는 어렸을때 부터 학교를 다니면서 프로그래밍 공부를 하였고 그래서 이렇게 되었습니다
+            {`저의 좌우명은 ‘허뿔개’입니다.
+‘허울뿐인 개발자가 되지 말자’는 뜻입니다.
+개발자는 많지만 자신의 개발 방법에 대해 끊임없이 의심하지 않고 사용 이유도 모르는 사람이 많습니다 저는 이전 직상에서 타입스크립트 도입, 리덕스에 대한 분석 등 많은 시도를 해보았습니다.
+개발자들 사이에서 그 사람 잘하더라라는 말을 할만한 개발자가 되기 위해 노력하고 있습니다.`}
           </InfoText>
           <InfoGraphLayout>
             <GraphItemLayout>
@@ -107,13 +108,13 @@ const InfoContentLayout = styled.div`
       flex-direction: column;
     `}
 `
-const InfoText = styled.div`
+const InfoText = styled.span`
   display: flex;
   flex: 1;
   font-size: 16px;
   color: ${({theme}) => theme.color.font.primary};
   margin-right: 28px;
-  word-break: normal;
+  white-space: pre-wrap;
   letter-spacing: 1px;
   ${({theme}) => theme.media.tablet`
       margin-bottom: 18px;

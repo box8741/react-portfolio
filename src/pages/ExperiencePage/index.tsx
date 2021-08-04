@@ -9,9 +9,9 @@ import {useAppSelector, useAppDispatch} from '../../hooks/useRedux'
 import {Title} from '../../components'
 
 type ExpeItemProps = {
-  year: string
-  title: string
-  content: string
+  year?: string
+  title?: string
+  content?: string
   iconType?: 'school' | 'work'
 }
 
@@ -37,22 +37,16 @@ const Experience = () => {
           <ExpeLine />
           <ExpeTextWrap>
             {_renderExpeItem({
-              year: '2019 - 2020',
-              title: 'Experience',
-              content:
-                'Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quoei simul congue exerci ad nec admodum perfecto.',
+              year: '2004 - 2009',
+              title: '영서초등학교',
             })}
             {_renderExpeItem({
-              year: '2019 - 2020',
-              title: 'Experience',
-              content:
-                'Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quoei simul congue exerci ad nec admodum perfecto.',
+              year: '2010 - 2012',
+              title: '영서중학교',
             })}
             {_renderExpeItem({
-              year: '2019 - 2020',
-              title: 'Experience',
-              content:
-                'Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quoei simul congue exerci ad nec admodum perfecto.',
+              year: '2013 - 2015',
+              title: '구로고등학교',
             })}
           </ExpeTextWrap>
         </ExpeWrap>
@@ -60,52 +54,10 @@ const Experience = () => {
           <ExpeLine />
           <ExpeTextWrap>
             {_renderExpeItem({
-              year: '2019 - 2020',
-              title: 'Experience',
-              content:
-                'Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quoei simul congue exerci ad nec admodum perfecto.',
-              iconType: 'work',
-            })}
-            {_renderExpeItem({
-              year: '2019 - 2020',
-              title: 'Experience',
-              content:
-                'Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quoei simul congue exerci ad nec admodum perfecto.',
-              iconType: 'work',
-            })}
-            {_renderExpeItem({
-              year: '2019 - 2020',
-              title: 'Experience',
-              content:
-                'Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quoei simul congue exerci ad nec admodum perfecto.',
-              iconType: 'work',
-            })}
-            {_renderExpeItem({
-              year: '2019 - 2020',
-              title: 'Experience',
-              content:
-                'Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quoei simul congue exerci ad nec admodum perfecto.',
-              iconType: 'work',
-            })}
-            {_renderExpeItem({
-              year: '2019 - 2020',
-              title: 'Experience',
-              content:
-                'Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quoei simul congue exerci ad nec admodum perfecto.',
-              iconType: 'work',
-            })}
-            {_renderExpeItem({
-              year: '2019 - 2020',
-              title: 'Experience',
-              content:
-                'Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quoei simul congue exerci ad nec admodum perfecto.',
-              iconType: 'work',
-            })}
-            {_renderExpeItem({
-              year: '2019 - 2020',
-              title: 'Experience',
-              content:
-                'Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quoei simul congue exerci ad nec admodum perfecto.',
+              year: '2020 - 2021',
+              title: '(주)에스브이',
+              content: `Lorem ipsum dolor sit 
+amet quo ei simul congue exerci ad nec admodum perfecto. Lorem ipsum dolor sit amet quoei simul congue exerci ad nec admodum perfecto.`,
               iconType: 'work',
             })}
           </ExpeTextWrap>
@@ -161,9 +113,10 @@ const ExpeLine = styled.div`
   border-radius: 32px;
   margin-right: 24px;
 `
-const ExpeTextWrap = styled.div`
+const ExpeTextWrap = styled.span`
   display: flex;
   flex-direction: column;
+  white-space: pre-wrap;
 `
 const ExpeYear = styled.span`
   display: flex;
