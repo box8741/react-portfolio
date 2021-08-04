@@ -68,9 +68,8 @@ const Layout = styled.div`
 const ContentLayout = styled.div`
   position: absolute;
   display: flex;
-  flex-flow: column wrap;
-  background: white;
-  box-shadow: 1px 1px 16px rgba(0, 0, 0, 0.6);
+  flex-direction: column;
+  max-height: 100%;
 `
 
 export default Modal
