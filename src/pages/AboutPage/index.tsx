@@ -8,11 +8,28 @@ import action from '../../redux/action'
 import {useAppSelector, useAppDispatch} from '../../hooks/useRedux'
 import {Title, LineProgress} from '../../components'
 
+interface GraphItemProps {
+  name?: string
+  percent?: number
+  color?: string
+}
+
 const AboutPage = () => {
+  const _renderGraphItem = ({name, percent, color}: GraphItemProps) => {
+    return (
+      <GraphItemWrap>
+        <GraphItemInfoWrap>
+          <GraphItemTitle>{name}</GraphItemTitle>
+          <GraphItemPercentText>{percent}%</GraphItemPercentText>
+        </GraphItemInfoWrap>
+        <GraphItemProgress color={color} percent={percent} />
+      </GraphItemWrap>
+    )
+  }
+
   return (
     <Layout>
       <Title>About Me</Title>
-
       <InfoLayout>
         <Avatar src={'/assets/svgs/avatar.svg'} />
         <InfoContentLayout>
@@ -22,20 +39,9 @@ const AboutPage = () => {
           </InfoText>
           <InfoGraphLayout>
             <GraphItemLayout>
-              <GraphItemWrap>
-                <GraphItemInfoWrap>
-                  <GraphItemTitle>Development</GraphItemTitle>
-                  <GraphItemPercentText>84%</GraphItemPercentText>
-                </GraphItemInfoWrap>
-                <GraphItemProgress color="#F8D270" percent={84} />
-              </GraphItemWrap>
-              <GraphItemWrap>
-                <GraphItemInfoWrap>
-                  <GraphItemTitle>UI/UX Design</GraphItemTitle>
-                  <GraphItemPercentText>95%</GraphItemPercentText>
-                </GraphItemInfoWrap>
-                <GraphItemProgress color="#EC5A65" percent={95} />
-              </GraphItemWrap>
+              {_renderGraphItem({name: 'React', percent: 80, color: '#61DBFB'})}
+              {_renderGraphItem({name: 'React native', percent: 95, color: '#0097a7'})}
+              {_renderGraphItem({name: 'Android', percent: 68, color: '#78C257'})}
             </GraphItemLayout>
           </InfoGraphLayout>
         </InfoContentLayout>

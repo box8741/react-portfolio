@@ -18,6 +18,7 @@ const TitleText = styled.div`
   font-size: 38px;
   font-weight: 900;
   color: ${({theme}) => theme.color.font.primary};
+  margin: 30px 0 0 30px;
   &::before {
     display: block;
     position: absolute;
