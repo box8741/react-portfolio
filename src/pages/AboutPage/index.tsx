@@ -36,6 +36,7 @@ const AboutPage = () => {
           <InfoText>
             Dolore irure id do culpa proident exercitation sint sunt. Adipisicing proident ex et enim incididunt aliqua
             tempor velit. Commodo in Lorem fugiat laboris deserunt. Aliqua duis excepteur aliquip minim magna fugiat
+            안녕하세요 저는 어렸을때 부터 학교를 다니면서 프로그래밍 공부를 하였고 그래서 이렇게 되었습니다
           </InfoText>
           <InfoGraphLayout>
             <GraphItemLayout>
@@ -112,8 +113,6 @@ const InfoText = styled.div`
   font-size: 16px;
   color: ${({theme}) => theme.color.font.primary};
   margin-right: 28px;
-  line-height: 28px;
-  letter-spacing: 1px;
   word-break: normal;
   letter-spacing: 1px;
   ${({theme}) => theme.media.tablet`
