@@ -86,7 +86,7 @@ const Layout = styled.div`
   width: 100%;
   max-width: ${({theme}) => `${theme.size.desktop}px`};
   align-self: center;
-  margin: 60px 0;
+  padding: 40px 12px;
 `
 const ExpeLayout = styled.div`
   display: grid;

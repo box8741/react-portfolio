@@ -70,7 +70,7 @@ const Layout = styled.div`
   align-self: center;
   flex-direction: column;
   justify-content: center;
-  padding: 0px 36px;
+  padding: 0 16px;
   background: ${({theme}) => theme.color.background.default};
   ${({theme}) => theme.media.tablet`
       justify-content: flex-start;
@@ -90,7 +90,7 @@ const InfoLayout = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 32px 0px;
+  margin: 32px 16px;
   ${({theme}) => theme.media.tablet`
       flex-direction: column;
       align-items: center;
@@ -152,7 +152,7 @@ const ItemLayout = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 60px 12px;
-  margin-top: 48px;
+  padding: 48px 0;
   ${({theme}) => theme.media.mobile`
     grid-template-columns: repeat(2, 1fr);
   `}
