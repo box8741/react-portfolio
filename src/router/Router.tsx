@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom'
 import {MuiThemeProvider} from '@material-ui/core'
 
 import mkConst from '../common/constants'
@@ -18,8 +18,12 @@ const Router = () => {
       <BrowserRouter>
         <Switch>
           <Route path="/main" component={MainPage} />
-          <Route path="/" exact component={LoginPage} />
-          <Route component={NotFoundPage} />
+          {/* <Route path="/" exact component={LoginPage} /> */}
+          <Route path="/" exact>
+            <Redirect to="/main" />
+          </Route>
+          <Redirect to="/main" />
+          {/* <Route component={NotFoundPage} /> */}
         </Switch>
       </BrowserRouter>
     </MuiThemeProvider>
