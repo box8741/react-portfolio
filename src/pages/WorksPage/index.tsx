@@ -202,20 +202,21 @@ const WorksPage = () => {
       <WorkLayout>
         {workFilterList.map((work, index) => {
           return (
-            <WorkItemWrap
+            <WorkItemRatioWrap
+              key={work.project_name}
               onClick={() => {
                 setSelectWork(work)
                 setVisible(true)
               }}
-              key={work.project_name}
-              index={index}
             >
-              <WorkItemThumb src={work.thum_img} />
-              <WorkItemDetail>
-                <DetailCategory>{work.type}</DetailCategory>
-                <DetailText>{work.project_name}</DetailText>
-              </WorkItemDetail>
-            </WorkItemWrap>
+              <WorkItemWrap index={index}>
+                <WorkItemThumb src={work.thum_img} />
+                <WorkItemDetail>
+                  <DetailCategory>{work.type}</DetailCategory>
+                  <DetailText>{work.project_name}</DetailText>
+                </WorkItemDetail>
+              </WorkItemWrap>
+            </WorkItemRatioWrap>
           )
         })}
       </WorkLayout>
@@ -269,6 +270,7 @@ const TabItemWrap = styled.li<{isSelect: boolean}>`
 const WorkLayout = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
   grid-gap: 32px;
   padding: 24px;
   ${({theme}) => theme.media.tablet`
@@ -286,6 +288,7 @@ const WorkItemDetail = styled.div`
   bottom: 0;
   opacity: 0;
   transition: all 0.3s ease-in-out;
+  border-radius: 22px;
 `
 const DetailCategory = styled.div`
   position: absolute;
@@ -308,14 +311,22 @@ const DetailText = styled.span`
   color: white;
   transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 `
-const WorkItemWrap = styled.div<{index: number}>`
+const WorkItemRatioWrap = styled.div`
   position: relative;
-  border-radius: 22px;
+  width: 100%;
+  padding-top: 100%;
+`
+const WorkItemWrap = styled.div<{index: number}>`
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   overflow: hidden;
   box-shadow: 1px 1px 16px #cccccc;
+  border-radius: 22px;
   background: transparent;
   cursor: pointer;
-  aspect-ratio: 1;
   ${({index}) => showAnimation(index)};
   &:hover ${WorkItemDetail} {
     opacity: 1;
