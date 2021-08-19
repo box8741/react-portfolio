@@ -37,16 +37,20 @@ const Experience = () => {
           <ExpeLine />
           <ExpeTextWrap>
             {_renderExpeItem({
-              year: '2004 - 2009',
-              title: '영서초등학교',
-            })}
-            {_renderExpeItem({
-              year: '2010 - 2012',
-              title: '영서중학교',
-            })}
-            {_renderExpeItem({
-              year: '2013 - 2015',
-              title: '구로고등학교',
+              year: '2019 - 2020',
+              title: '미래능력개발교육원',
+              content: `- 영화 (React-native)
+
+- 쇼핑몰 블루베리 (Web)
+
+- 알급 (Android)
+Service를 통한 백그라운드 아르바이트 시간 알람 기능 구현
+
+- 캐치마인드 (Java)
+소켓 통신을 통한 마우스 클릭 좌표와 채팅 내용을 실시간 공유 기능 구현
+
+- 미세먼지 알림이 (Android)
+API 호출을 통해 가져온 날씨 Json 데이터를 사용자에게 보기 편한 UI로 변경 작업`,
             })}
           </ExpeTextWrap>
         </ExpeWrap>
@@ -56,19 +60,19 @@ const Experience = () => {
             {_renderExpeItem({
               year: '2020 - 2021',
               title: '(주)에스브이',
-              content: `- 먼슬리키친
+              content: `- 먼슬리키친 (React-native)
 상품 및 결제 관련 플로우 기능 구현
 
-- 인생네컷
+- 인생네컷 (React-native)
 인스타그램의 사진 필터 및 편집 기능 WebGL을 통해 RN에서 기능 구현
 
-- 스탠다드 패스
-기존에 모든 바코드를 촬영하던 로직을 변경해 datamatrix, qr code 타입만 자동 인식하도록 수정
+- 스탠다드 패스 (React-native)
+기존에 모든 바코드를 촬영하던 로직을 변경해 Datamatrix, QRcode 타입만 자동 인식하도록 수정
 
-- 도소디
+- 도소디 (React-native)
 페이징 로직을 변경하여 최소한의 API를 호출하도록 변경하여 성능 향상
 
-- 사구와로
+- 사구와로 (React-native)
 기초 설계와 타입 스크립트를 도입함으로써 유지 보수 기간 단축
 `,
               iconType: 'work',

@@ -42,7 +42,7 @@ const SamplePage = () => {
       <ProfileImg src={'/assets/svgs/avatar.svg'} />
       <Title>Minkuk Park</Title>
       <SubTitle>{aniSubTitle}</SubTitle>
-      <IconButton target="_Blink" href="https://github.com/box8741/react-portfolio">
+      <IconButton target="_Blink" href="https://github.com/box8741">
         <GithubIcon />
       </IconButton>
     </Layout>
