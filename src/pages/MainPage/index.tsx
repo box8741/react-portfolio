@@ -42,6 +42,7 @@ const Layout = styled.div`
   flex-direction: column;
   width: 100vw;
   height: 100vh;
+  overflow-x: hidden;
   background: ${({theme}) => theme.color.background.default};
 `
 const MainLayout = styled.div<{isVisible: boolean; isMobile: boolean}>`
@@ -49,7 +50,6 @@ const MainLayout = styled.div<{isVisible: boolean; isMobile: boolean}>`
   flex-direction: column;
   width: 100%;
   height: 100vh;
-  overflow-x: hidden;
   transition: all 0.4s ease-in-out;
   ${({isVisible, isMobile}) => {
     if (isVisible && !isMobile) {

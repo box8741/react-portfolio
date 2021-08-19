@@ -57,11 +57,13 @@ const Drawer = (props: Props) => {
 
 const DrawerContent = styled.div<{isVisible: boolean}>`
   display: flex;
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
+  width: 300px;
   min-width: 300px;
-  min-height: 100vh;
+  height: 100%;
+  overflow-y: auto;
   flex-direction: column;
   justify-content: space-between;
   z-index: 1;
