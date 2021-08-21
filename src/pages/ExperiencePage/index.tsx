@@ -101,11 +101,11 @@ const showAnimation = css`
 `
 const Layout = styled.div`
   display: flex;
-  flex-wrap: wrap;
   align-self: center;
+  flex-wrap: wrap;
   width: 100%;
-  max-width: ${({theme}) => `${theme.size.desktop}px`};
   height: 100%;
+  max-width: ${({theme}) => `${theme.size.desktop}px`};
   padding: 40px 12px;
 `
 const EachWrap = styled.div`

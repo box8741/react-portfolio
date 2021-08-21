@@ -26,11 +26,9 @@ const Header = (props: Props) => {
 
 const Layout = styled.div`
   display: flex;
-  /* position: sticky; */
-  top: 0;
-  left: 0;
-  align-items: center;
+  width: 100%;
   height: 80px;
+  align-items: center;
   background: ${({theme}) => theme.color.background.primary};
   padding: 12px 18px;
 `

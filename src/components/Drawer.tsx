@@ -65,10 +65,10 @@ const Drawer = (props: Props) => {
 const DrawerContent = styled.div<{isVisible: boolean}>`
   display: flex;
   position: fixed;
-  left: 0;
   top: 0;
+  left: 0;
+  bottom: 0;
   width: 300px;
-  height: 100%;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   flex-direction: column;
@@ -86,20 +86,18 @@ const DrawerContent = styled.div<{isVisible: boolean}>`
       `};
 `
 const DrawerBackground = styled.div<{isVisible: boolean; isMobile: boolean}>`
-  position: absolute;
-  pointer-events: none;
-  left: 0;
-  top: 0;
+  position: fixed;
+  visibility: hidden;
   width: 100vw;
   height: 100vh;
   background: white;
   opacity: 0;
-  transition: opacity 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
   z-index: 1;
   ${({isVisible, isMobile}) => {
     if (isVisible && isMobile) {
       return css`
-        pointer-events: auto;
+        visibility: visible;
         opacity: 0.2;
       `
     }

@@ -62,7 +62,6 @@ const Layout = styled.div`
   width: 100%;
   height: 100%;
   justify-content: center;
-  overflow-y: auto;
   background: ${({theme}) => theme.color.background.primary};
 `
 const EachWrap = styled.div`
