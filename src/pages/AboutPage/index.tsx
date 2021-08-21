@@ -29,51 +29,58 @@ const AboutPage = () => {
 
   return (
     <Layout>
-      <Title>About Me</Title>
-      <InfoLayout>
-        <Avatar src={'/assets/svgs/avatar.svg'} />
-        <InfoContentLayout>
-          <InfoText>
-            {`저의 좌우명은 ‘허울뿐인 개발자가 되지 말자’ 입니다.
+      <EachWrap>
+        <Title>About Me</Title>
+        <InfoLayout>
+          <Avatar src={'/assets/svgs/avatar.svg'} />
+          <InfoContentLayout>
+            <InfoText>
+              {`저의 좌우명은 ‘허울뿐인 개발자가 되지 말자’ 입니다.
 개발자는 많지만 자신의 개발 방법에 대해 끊임없이 의심하지 않고 사용 이유도 모르는 사람이 많습니다 저는 이전 직상에서 타입스크립트 도입, 리덕스에 대한 분석 등 많은 시도를 해보았습니다.
 개발자들 사이에서 그 사람 잘하더라라는 말을 할만한 개발자가 되기 위해 노력하고 있습니다.`}
-          </InfoText>
-          <InfoGraphLayout>
-            <GraphItemLayout>
-              {_renderGraphItem({name: 'React', percent: 80, color: '#61DBFB'})}
-              {_renderGraphItem({name: 'React native', percent: 95, color: '#0097a7'})}
-              {_renderGraphItem({name: 'Android', percent: 68, color: '#78C257'})}
-            </GraphItemLayout>
-          </InfoGraphLayout>
-        </InfoContentLayout>
-      </InfoLayout>
+            </InfoText>
+            <InfoGraphLayout>
+              <GraphItemLayout>
+                {_renderGraphItem({name: 'React', percent: 80, color: '#61DBFB'})}
+                {_renderGraphItem({name: 'React native', percent: 95, color: '#0097a7'})}
+                {_renderGraphItem({name: 'Android', percent: 68, color: '#78C257'})}
+              </GraphItemLayout>
+            </InfoGraphLayout>
+          </InfoContentLayout>
+        </InfoLayout>
 
-      <ItemLayout>
-        <JavascriptIcon />
-        <Html5Icon />
-        <Css3Icon />
-        <TypescriptIcon />
-        <ReactLogoIcon />
-        <JavaIcon />
-        <AndroidIcon />
-      </ItemLayout>
+        <ItemLayout>
+          <JavascriptIcon />
+          <Html5Icon />
+          <Css3Icon />
+          <TypescriptIcon />
+          <ReactLogoIcon />
+          <JavaIcon />
+          <AndroidIcon />
+        </ItemLayout>
+      </EachWrap>
     </Layout>
   )
 }
 
 const Layout = styled.div`
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
   height: 100%;
   max-width: ${({theme}) => `${theme.size.desktop}px`};
   align-self: center;
-  flex-direction: column;
   justify-content: center;
   padding: 0 16px;
   background: ${({theme}) => theme.color.background.default};
   ${({theme}) => theme.media.tablet`
       justify-content: flex-start;
     `}
+`
+const EachWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `
 const Avatar = styled.img`
   width: 160px;

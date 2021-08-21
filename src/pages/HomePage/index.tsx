@@ -39,12 +39,14 @@ const SamplePage = () => {
 
   return (
     <Layout>
-      <ProfileImg src={'/assets/svgs/avatar.svg'} />
-      <Title>Minkuk Park</Title>
-      <SubTitle>{aniSubTitle}</SubTitle>
-      <IconButton target="_Blink" href="https://github.com/box8741">
-        <GithubIcon />
-      </IconButton>
+      <EachWrap>
+        <ProfileImg src={'/assets/svgs/avatar.svg'} />
+        <Title>Minkuk Park</Title>
+        <SubTitle>{aniSubTitle}</SubTitle>
+        <IconButton target="_Blink" href="https://github.com/box8741">
+          <GithubIcon />
+        </IconButton>
+      </EachWrap>
     </Layout>
   )
 }
@@ -56,12 +58,18 @@ const CursurAnimation = keyframes`
 `
 const Layout = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   width: 100%;
   height: 100%;
   justify-content: center;
-  align-items: center;
+  overflow-y: auto;
   background: ${({theme}) => theme.color.background.primary};
+`
+const EachWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `
 const ProfileImg = styled.img`
   width: 140px;

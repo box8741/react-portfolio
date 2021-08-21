@@ -31,15 +31,16 @@ const Experience = () => {
 
   return (
     <Layout>
-      <Title>Experience</Title>
-      <ExpeLayout>
-        <ExpeWrap>
-          <ExpeLine />
-          <ExpeTextWrap>
-            {_renderExpeItem({
-              year: '2019 - 2020',
-              title: '미래능력개발교육원',
-              content: `- 영화 (React-native)
+      <EachWrap>
+        <Title>Experience</Title>
+        <ExpeLayout>
+          <ExpeWrap>
+            <ExpeLine />
+            <ExpeTextWrap>
+              {_renderExpeItem({
+                year: '2019 - 2020',
+                title: '미래능력개발교육원',
+                content: `- 영화 (React-native)
 
 - 쇼핑몰 블루베리 (Web)
 
@@ -51,16 +52,16 @@ Service를 통한 백그라운드 아르바이트 시간 알람 기능 구현
 
 - 미세먼지 알림이 (Android)
 API 호출을 통해 가져온 날씨 Json 데이터를 사용자에게 보기 편한 UI로 변경 작업`,
-            })}
-          </ExpeTextWrap>
-        </ExpeWrap>
-        <ExpeWrap>
-          <ExpeLine />
-          <ExpeTextWrap>
-            {_renderExpeItem({
-              year: '2020 - 2021',
-              title: '(주)에스브이',
-              content: `- 먼슬리키친 (React-native)
+              })}
+            </ExpeTextWrap>
+          </ExpeWrap>
+          <ExpeWrap>
+            <ExpeLine />
+            <ExpeTextWrap>
+              {_renderExpeItem({
+                year: '2020 - 2021',
+                title: '(주)에스브이',
+                content: `- 먼슬리키친 (React-native)
 상품 및 결제 관련 플로우 기능 구현
 
 - 인생네컷 (React-native)
@@ -75,11 +76,12 @@ API 호출을 통해 가져온 날씨 Json 데이터를 사용자에게 보기 �
 - 사구와로 (React-native)
 기초 설계와 타입 스크립트를 도입함으로써 유지 보수 기간 단축
 `,
-              iconType: 'work',
-            })}
-          </ExpeTextWrap>
-        </ExpeWrap>
-      </ExpeLayout>
+                iconType: 'work',
+              })}
+            </ExpeTextWrap>
+          </ExpeWrap>
+        </ExpeLayout>
+      </EachWrap>
     </Layout>
   )
 }
@@ -99,12 +101,17 @@ const showAnimation = css`
 `
 const Layout = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  align-self: center;
   width: 100%;
   max-width: ${({theme}) => `${theme.size.desktop}px`};
   height: 100%;
-  align-self: center;
   padding: 40px 12px;
+`
+const EachWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `
 const ExpeLayout = styled.div`
   display: grid;

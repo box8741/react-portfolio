@@ -93,23 +93,22 @@ const WorksPage = () => {
           img: ['/assets/svgs/monthly_login.svg', '/assets/svgs/monthly_splash.svg'],
         })
 
-      //       case 'saguaro':
-      //         return _modalLayout({
-      //           title: '사구와로 (React Native)',
-      //           period: '2021.05 ~ 2021.06',
-      //           people: 3,
-      //           role: '프론트 개발',
-      //           env: 'OS(Mac OS) / Language(Javascript, Typescript)',
-      //           // path: [
-      //           //   {name: 'Google Play : ', path: 'https://play.google.com/store/apps/details?id=com.svcorps.mkitchen'},
-      //           //   {name: 'App Store : ', path: 'https://apps.apple.com/app/id1529045924'},
-      //           // ],
-      //           desc: `여기에는 설명이 들어갑니다 여기에는 설명이 들어갑니다 여기에는 설명이 들어갑니다 여기에는 설명이 들어갑니다
-      // 여기에는 설명이 들어갑니다 여기에는 설명이 들어갑니다 여기에는 설명이 들어갑니다 여기에는 설명이 들어갑니다
+      // case 'saguaro':
+      //   return _modalLayout({
+      //     title: '사구와로 (React Native)',
+      //     period: '2021.05 ~ 2021.06',
+      //     people: 3,
+      //     role: '프론트 개발',
+      //     env: 'OS(Mac OS) / Language(Javascript, Typescript)',
+      //     // path: [
+      //     //   {name: 'Google Play : ', path: 'https://play.google.com/store/apps/details?id=com.svcorps.mkitchen'},
+      //     //   {name: 'App Store : ', path: 'https://apps.apple.com/app/id1529045924'},
+      //     // ],
+      //     desc: `여기에는 설명이 들어갑니다 여기에는 설명이 들어갑니다 여기에는 설명이 들어갑니다 여기에는 설명이 들어갑니다
       // 여기에는 설명이 들어갑니다 여기에는 설명이 들어갑니다 여기에는 설명이 들어갑니다 여기에는 설명이 들어갑니다
       // 여기에는 설명이 들어갑니다 여기에는 설명이 들어갑니다 여기에는 설명이 들어갑니다 여기에는 설명이 들어갑니다`,
-      //           img: ['/assets/svgs/saguaro_login.svg', '/assets/svgs/saguaro_splash.svg'],
-      //         })
+      //     img: ['/assets/svgs/saguaro_login.svg', '/assets/svgs/saguaro_splash.svg'],
+      //   })
 
       case 'dosode':
         return _modalLayout({
