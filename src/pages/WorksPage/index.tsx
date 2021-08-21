@@ -244,6 +244,7 @@ const Layout = styled.div`
   display: flex;
   width: 100%;
   max-width: ${({theme}) => `${theme.size.desktop}px`};
+  height: 100%;
   flex-direction: column;
   align-self: center;
   padding: 60px 0;

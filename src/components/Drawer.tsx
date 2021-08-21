@@ -61,9 +61,9 @@ const DrawerContent = styled.div<{isVisible: boolean}>`
   left: 0;
   top: 0;
   width: 300px;
-  min-width: 300px;
   height: 100%;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   flex-direction: column;
   justify-content: space-between;
   z-index: 1;

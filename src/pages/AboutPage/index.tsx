@@ -64,8 +64,8 @@ const AboutPage = () => {
 const Layout = styled.div`
   display: flex;
   width: 100%;
+  height: 100%;
   max-width: ${({theme}) => `${theme.size.desktop}px`};
-  min-height: 100%;
   align-self: center;
   flex-direction: column;
   justify-content: center;

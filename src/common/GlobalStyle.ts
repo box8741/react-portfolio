@@ -9,6 +9,10 @@ const GlobalStyle = createGlobalStyle`
     *, *::before, *::after {
         box-sizing: border-box;
     }
+    #root{
+        width: 100vw;
+        height: 100vh;
+    }
     body {
         font-family: 'Pretendard-Regular';
     }

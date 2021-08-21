@@ -40,16 +40,16 @@ const MainPage = (props: RouteComponentProps) => {
 const Layout = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100vw;
-  height: 100vh;
-  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  overflow: hidden auto;
   background: ${({theme}) => theme.color.background.default};
 `
 const MainLayout = styled.div<{isVisible: boolean; isMobile: boolean}>`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   transition: all 0.4s ease-in-out;
   ${({isVisible, isMobile}) => {
     if (isVisible && !isMobile) {

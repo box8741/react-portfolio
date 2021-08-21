@@ -16,8 +16,8 @@ const ErrorPage = () => {
 
 const Layout = styled('div')`
   display: flex;
-  width: 100vw;
-  min-height: 100vh;
+  width: 100%;
+  height: 100%;
   justify-content: center;
 `
 const ErrorText = styled('span')`

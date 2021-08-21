@@ -102,6 +102,7 @@ const Layout = styled.div`
   flex-direction: column;
   width: 100%;
   max-width: ${({theme}) => `${theme.size.desktop}px`};
+  height: 100%;
   align-self: center;
   padding: 40px 12px;
 `
