@@ -34,7 +34,14 @@ const Drawer = (props: Props) => {
           <ItemLayout>
             {tabList.map((i, j) => {
               return (
-                <Item key={j} onClick={() => history.push(i.path)} active={activeRoute(i.path)}>
+                <Item
+                  key={j}
+                  onClick={() => {
+                    if (isMobile) setVisible(false)
+                    history.push(i.path)
+                  }}
+                  active={activeRoute(i.path)}
+                >
                   <i.icon />
                   {i.name}
                 </Item>
