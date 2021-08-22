@@ -185,7 +185,7 @@ const WorksPage = () => {
   return (
     <Layout>
       <Title>Recent Works</Title>
-      <TabLayout>
+      {/* <TabLayout>
         {tabList.map((i, j) => (
           <TabItemWrap
             key={j}
@@ -197,7 +197,7 @@ const WorksPage = () => {
             {i.name}
           </TabItemWrap>
         ))}
-      </TabLayout>
+      </TabLayout> */}
       <WorkLayout>
         {workFilterList.map((work, index) => {
           return (
@@ -250,7 +250,7 @@ const Layout = styled.div`
 `
 const TabLayout = styled.ul`
   display: flex;
-  margin: 36px 0;
+  margin: 36px;
   ${({theme}) => theme.media.tablet`
        display: none;
   `}
