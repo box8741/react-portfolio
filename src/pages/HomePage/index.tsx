@@ -60,7 +60,7 @@ const Layout = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  height: 100%;
+  height: calc(100vh - 80px);
   justify-content: center;
   background: ${({theme}) => theme.color.background.primary};
 `

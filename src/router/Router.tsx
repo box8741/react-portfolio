@@ -34,8 +34,14 @@ const Router = () => {
 }
 
 const Layout = styled.div`
+  display: flex;
   width: 100vw;
-  height: 100vh;
+  /* height: 100vh; */
+  min-height: 100vh;
+  flex-flow: row wrap;
+  overflow: hidden auto;
+  -webkit-overflow-scrolling: touch;
+  background: ${({theme}) => theme.color.background.default};
 `
 
 export default Router

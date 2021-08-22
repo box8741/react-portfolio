@@ -27,24 +27,16 @@ const MainPage = (props: RouteComponentProps) => {
   }, [])
 
   return (
-    <Layout>
+    <>
       <Drawer {...{isVisible, isMobile, setVisible}} />
       {isMobile && <Header onDrawerVisible={setVisible} />}
       <MainLayout {...{isVisible, isMobile}}>
         <MainRouter />
       </MainLayout>
-    </Layout>
+    </>
   )
 }
 
-const Layout = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  overflow: hidden auto;
-  background: ${({theme}) => theme.color.background.default};
-`
 const MainLayout = styled.div<{isVisible: boolean; isMobile: boolean}>`
   display: flex;
   flex-direction: column;
@@ -56,6 +48,11 @@ const MainLayout = styled.div<{isVisible: boolean; isMobile: boolean}>`
       return css`
         width: calc(100% - 300px);
         margin-left: 300px;
+      `
+    }
+    if (isMobile) {
+      return css`
+        height: calc(100% - 80px);
       `
     }
   }}

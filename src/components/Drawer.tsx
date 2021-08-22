@@ -88,8 +88,10 @@ const DrawerContent = styled.div<{isVisible: boolean}>`
 const DrawerBackground = styled.div<{isVisible: boolean; isMobile: boolean}>`
   position: fixed;
   visibility: hidden;
-  width: 100vw;
-  height: 100vh;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   background: white;
   opacity: 0;
   transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;

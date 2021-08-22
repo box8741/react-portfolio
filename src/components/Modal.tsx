@@ -43,7 +43,7 @@ const Modal = (props: Props) => {
 
 const Layout = styled.div`
   display: flex;
-  position: absolute;
+  position: fixed;
   flex-wrap: wrap;
   top: 0;
   bottom: 0;
