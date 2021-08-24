@@ -50,7 +50,7 @@ const Layout = styled.div`
   left: 0;
   right: 0;
   z-index: 100;
-  overflow-y: auto;
+  overflow: hidden auto;
   justify-content: center;
   align-items: center;
   background: rgba(0, 0, 0, 0.5);
@@ -65,11 +65,7 @@ const Layout = styled.div`
   }
 `
 const ContentLayout = styled.div`
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  max-height: 100%;
-  padding: 28px;
+  padding: 14px;
 `
 
 export default Modal

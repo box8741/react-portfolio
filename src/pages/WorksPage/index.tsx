@@ -243,10 +243,8 @@ const showAnimation = (index: number) => css`
 `
 const Layout = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  height: 100%;
+  min-height: 100%;
   justify-content: center;
-  align-items: center;
 `
 const EachWrap = styled.div`
   display: flex;
@@ -396,12 +394,9 @@ const SwitchInfoLayout = styled.div`
 `
 const SwitchImageLayout = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-flow: wrap;
   justify-content: center;
   align-items: center;
-  ${({theme}) => theme.media.mobile`
-      flex-direction: column;
-  `}
 `
 const SwitchTitle = styled.span`
   font-size: 30px;
@@ -471,13 +466,6 @@ const SwitchImg = styled.img`
   width: 100%;
   max-width: 160px;
   object-fit: contain;
-  :nth-child(1) {
-    margin-right: 32px;
-    ${({theme}) => theme.media.mobile`
-      margin-right: 0px;
-      margin-bottom: 24px
-    `}
-  }
 `
 const SwitchHorizonLine = styled.hr`
   width: 100%;

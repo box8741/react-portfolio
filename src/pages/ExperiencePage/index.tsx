@@ -147,8 +147,7 @@ const showAnimation = css`
 `
 const Layout = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  height: 100%;
+  min-height: 100%;
   justify-content: center;
   align-items: center;
 `

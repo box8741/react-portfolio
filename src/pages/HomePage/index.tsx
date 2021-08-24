@@ -58,14 +58,14 @@ const CursurAnimation = keyframes`
 `
 const Layout = styled.div`
   display: flex;
-  height: 100%;
+  min-height: 100%;
+  align-items: center;
   justify-content: center;
   background: ${({theme}) => theme.color.background.primary};
 `
 const EachWrap = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 `
 const ProfileImg = styled.img`

@@ -65,8 +65,7 @@ const AboutPage = () => {
 
 const Layout = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  height: 100%;
+  min-height: 100%;
   justify-content: center;
   align-items: center;
   background: ${({theme}) => theme.color.background.default};
