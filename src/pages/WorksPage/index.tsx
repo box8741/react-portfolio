@@ -184,8 +184,9 @@ const WorksPage = () => {
 
   return (
     <Layout>
-      <Title>Recent Works</Title>
-      {/* <TabLayout>
+      <EachWrap>
+        <Title>Recent Works</Title>
+        {/* <TabLayout>
         {tabList.map((i, j) => (
           <TabItemWrap
             key={j}
@@ -198,27 +199,28 @@ const WorksPage = () => {
           </TabItemWrap>
         ))}
       </TabLayout> */}
-      <WorkLayout>
-        {workFilterList.map((work, index) => {
-          return (
-            <WorkItemRatioWrap
-              key={work.project_name}
-              onClick={() => {
-                setSelectWork(work)
-                setVisible(true)
-              }}
-            >
-              <WorkItemWrap index={index}>
-                <WorkItemThumb src={work.thum_img} />
-                <WorkItemDetail>
-                  <DetailCategory>{work.type}</DetailCategory>
-                  <DetailText>{work.project_name}</DetailText>
-                </WorkItemDetail>
-              </WorkItemWrap>
-            </WorkItemRatioWrap>
-          )
-        })}
-      </WorkLayout>
+        <WorkLayout>
+          {workFilterList.map((work, index) => {
+            return (
+              <WorkItemRatioWrap
+                key={work.project_name}
+                onClick={() => {
+                  setSelectWork(work)
+                  setVisible(true)
+                }}
+              >
+                <WorkItemWrap index={index}>
+                  <WorkItemThumb src={work.thum_img} />
+                  <WorkItemDetail>
+                    <DetailCategory>{work.type}</DetailCategory>
+                    <DetailText>{work.project_name}</DetailText>
+                  </WorkItemDetail>
+                </WorkItemWrap>
+              </WorkItemRatioWrap>
+            )
+          })}
+        </WorkLayout>
+      </EachWrap>
       <Modal isVisible={isVisible} onHide={() => setVisible(false)}>
         {switchModalRender()}
       </Modal>
@@ -241,12 +243,17 @@ const showAnimation = (index: number) => css`
 `
 const Layout = styled.div`
   display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+`
+const EachWrap = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 100%;
   max-width: ${({theme}) => `${theme.size.desktop}px`};
-  height: 100%;
-  flex-direction: column;
-  align-self: center;
-  padding: 60px 0;
+  margin: 40px 0;
 `
 const TabLayout = styled.ul`
   display: flex;

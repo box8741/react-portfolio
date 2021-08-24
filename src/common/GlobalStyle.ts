@@ -11,8 +11,9 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
     }
-    body {
+    html, body, #root {
         font-family: 'Pretendard-Regular';
+        height: 100%;
     }
 `
 

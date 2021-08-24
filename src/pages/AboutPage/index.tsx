@@ -66,21 +66,17 @@ const AboutPage = () => {
 const Layout = styled.div`
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
   height: 100%;
-  max-width: ${({theme}) => `${theme.size.desktop}px`};
-  align-self: center;
   justify-content: center;
-  padding: 0 16px;
+  align-items: center;
   background: ${({theme}) => theme.color.background.default};
-  ${({theme}) => theme.media.tablet`
-      justify-content: flex-start;
-    `}
 `
 const EachWrap = styled.div`
   display: flex;
+  max-width: ${({theme}) => `${theme.size.desktop}px`};
   flex-direction: column;
   justify-content: center;
+  margin: 0 16px;
 `
 const Avatar = styled.img`
   width: 160px;

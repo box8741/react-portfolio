@@ -29,6 +29,19 @@ const Experience = () => {
     )
   }
 
+  // - 영화 (React-native)
+
+  // - 쇼핑몰 블루베리 (Web)
+
+  // - 알급 (Android)
+  // Service를 통한 백그라운드 아르바이트 시간 알람 기능 구현
+
+  // - 캐치마인드 (Java)
+  // 소켓 통신을 통한 마우스 클릭 좌표와 채팅 내용을 실시간 공유 기능 구현
+
+  // - 미세먼지 알림이 (Android)
+  // API 호출을 통해 가져온 날씨 Json 데이터를 사용자에게 보기 편한 UI로 변경 작업
+
   return (
     <Layout>
       <EachWrap>
@@ -40,18 +53,41 @@ const Experience = () => {
               {_renderExpeItem({
                 year: '2019 - 2020',
                 title: '미래능력개발교육원',
-                content: `- 영화 (React-native)
+                content: `안드로이드 웹 앱 콘텐츠 개발자
+                
+# 작업기초능력
+  - 정보능력
+  - 기술능력
 
-- 쇼핑몰 블루베리 (Web)
+# 기초 프로그래밍 언어
+  - 프로그래밍 언어 활용
 
-- 알급 (Android)
-Service를 통한 백그라운드 아르바이트 시간 알람 기능 구현
+# 객체지향 프로그래밍
+  - 비 NCS 교과
 
-- 캐치마인드 (Java)
-소켓 통신을 통한 마우스 클릭 좌표와 채팅 내용을 실시간 공유 기능 구현
+# 응용 소프트웨어 개발기초
+  - 응용 SW 기초 기술 활용
 
-- 미세먼지 알림이 (Android)
-API 호출을 통해 가져온 날씨 Json 데이터를 사용자에게 보기 편한 UI로 변경 작업`,
+# 응용 소프트웨어 구현 테스트 및 배포
+  - 개발자 테스트
+  - 애플리케이션 테스트 수행
+  - 애플리케이션 배포
+
+# 안드로이드 네이티브 앱 제작
+  - 앱 프로그래밍
+
+# Material 적용 앱 제작 및 배포
+  - 비 NCS 교과
+
+# 웹 UI 구현
+  - 화면 구현
+
+# 웹 프로그래밍
+  - 애플리케이션 구현
+
+# 하이브리드 앱 제작
+  - UI 구현
+`,
               })}
             </ExpeTextWrap>
           </ExpeWrap>
@@ -61,20 +97,30 @@ API 호출을 통해 가져온 날씨 Json 데이터를 사용자에게 보기 �
               {_renderExpeItem({
                 year: '2020 - 2021',
                 title: '(주)에스브이',
-                content: `- 먼슬리키친 (React-native)
-상품 및 결제 관련 플로우 기능 구현
+                content: `- 먼슬리 키친 (React-native)
+결제 관련 플로우 기능 구현 및 예외 처리 작업
+상품 주문정보 목록 갱신을 위한 주문, 취소 등 특정 이벤트 발생 시 동기화 작업
+Root Siblings 을 이용한 알림 창 공통화 구현
+FCM을 통한 특정 페이지 이동을 위해 Deep Linking 구현
 
 - 인생네컷 (React-native)
-인스타그램의 사진 필터 및 편집 기능 WebGL을 통해 RN에서 기능 구현
+Android, iOS 권한 요청 공통화 구현
+인스타그램의 사진 필터 기능처럼 WebGL을 통해 구현
 
 - 스탠다드 패스 (React-native)
-기존에 모든 바코드를 촬영하던 로직을 변경해 Datamatrix, QRcode 타입만 자동 인식하도록 수정
+바코드 촬영 Datamatrix, QR code 타입만 인식하도록 구현
+앱 언어 설정 변경에 따라 앱 전체 글씨 변경 기능 구현
+디바이스에 설정되어 있는 언어에 따라 스탠다드 패스 언어 변경 구현
+특정 언어에 따라 I18nManager를 사용해 언어 RTL 작업
 
-- 도소디 (React-native)
-페이징 로직을 변경하여 최소한의 API를 호출하도록 변경하여 성능 향상
+- 모두의 신상 (React-native)
+전체 목록 개수와 현재 목록 개수를 계산해 최소한 호출로 페이징 처리 작업
+JWT 토큰 관리를 위한 refresh Token 별도 저장 및 토큰 갱신 구현
+정렬, 이미지 추가, 글씨 작성이 가능한 상품 등록 기능 구현
 
-- 사구와로 (React-native)
-기초 설계와 타입 스크립트를 도입함으로써 유지 보수 기간 단축
+- 싸이페어 (React-native)
+FCM 관련 설정 이슈 수정 작업
+박람회 작성에 링크 기능 추가 작업
 `,
                 iconType: 'work',
               })}
@@ -101,17 +147,17 @@ const showAnimation = css`
 `
 const Layout = styled.div`
   display: flex;
-  align-self: center;
   flex-wrap: wrap;
-  width: 100%;
   height: 100%;
-  max-width: ${({theme}) => `${theme.size.desktop}px`};
-  padding: 40px 12px;
+  justify-content: center;
+  align-items: center;
 `
 const EachWrap = styled.div`
   display: flex;
+  max-width: ${({theme}) => `${theme.size.desktop}px`};
   flex-direction: column;
   justify-content: center;
+  margin: 30px 12px;
 `
 const ExpeLayout = styled.div`
   display: grid;

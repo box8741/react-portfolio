@@ -38,9 +38,6 @@ const MainPage = (props: RouteComponentProps) => {
 }
 
 const MainLayout = styled.div<{isVisible: boolean; isMobile: boolean}>`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
   height: 100%;
   transition: width 0.4s ease-in-out, margin-left 0.4s ease-in-out;
   ${({isVisible, isMobile}) => {
