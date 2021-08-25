@@ -465,6 +465,7 @@ const SwitchImg = styled.img`
   width: 100%;
   max-width: 160px;
   object-fit: contain;
+  margin: 12px;
 `
 const SwitchHorizonLine = styled.hr`
   width: 100%;
