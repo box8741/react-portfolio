@@ -24,7 +24,6 @@ const Router = () => {
             <Route path="/" exact>
               <Redirect to="/main" />
             </Route>
-            <Redirect to="/main" />
             {/* <Route component={NotFoundPage} /> */}
           </Layout>
         </Switch>
