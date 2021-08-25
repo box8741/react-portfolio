@@ -24,6 +24,8 @@ const Modal = (props: Props) => {
   }, [])
 
   React.useEffect(() => {
+    if (props.isVisible) document.body.style.overflow = 'hidden'
+    else document.body.style.overflowY = 'auto'
     setShow(props.isVisible)
   }, [props.isVisible])
 

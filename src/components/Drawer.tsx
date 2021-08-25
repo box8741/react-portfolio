@@ -15,6 +15,11 @@ type Props = RouteComponentProps & {
 const Drawer = (props: Props) => {
   const {isVisible, isMobile, setVisible, history} = props
 
+  React.useEffect(() => {
+    if (isVisible && isMobile) document.body.style.overflow = 'hidden'
+    else document.body.style.overflowY = 'auto'
+  }, [isVisible, isMobile])
+
   const tabList = [
     {name: 'Home', path: '/main/home', icon: () => <HomeIcon />},
     {name: 'About', path: '/main/about', icon: () => <AboutIcon />},
@@ -70,7 +75,6 @@ const DrawerContent = styled.div<{isVisible: boolean}>`
   bottom: 0;
   width: 300px;
   overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
   flex-direction: column;
   justify-content: space-between;
   z-index: 1;
