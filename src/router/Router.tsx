@@ -7,7 +7,7 @@ import mkConst from '../common/constants'
 import theme from '../theme/marterialTheme'
 
 // error pages
-import NotFoundPage from '../pages/NotFoundPage'
+import NotSupportPage from '../pages/NotSupportPage'
 
 // pages
 import LoginPage from '../pages/LoginPage'
@@ -19,12 +19,10 @@ const Router = () => {
       <BrowserRouter>
         <Switch>
           <Layout>
+            <Redirect from="/" to="/main" />
             <Route path="/main" component={MainPage} />
+            {/* <Route path="/notSupport" component={NotSupportPage} /> */}
             {/* <Route path="/" exact component={LoginPage} /> */}
-            <Route path="/" exact>
-              <Redirect to="/main" />
-            </Route>
-            {/* <Route component={NotFoundPage} /> */}
           </Layout>
         </Switch>
       </BrowserRouter>
