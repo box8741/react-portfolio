@@ -58,6 +58,7 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'off',
     '@typescript-eslint/no-empty-function': 'off',
     'no-trailing-spaces': 'off',
+    '@typescript-eslint/no-var-requires': 'off',
     semi: 'off',
   },
   // overrides: [

@@ -1,7 +1,26 @@
 {
   "name": "react-portfolio",
+  "description": "Electron Application",
   "version": "0.1.0",
   "private": true,
+  "main": "public/electron.js",
+  "homepage": "./",
+  "author": "",
+  "build": {
+    "appId": "com.example.react.app",
+    "productName": "MyApp",
+    "copyright": "Copyright © 2019 ${author}",
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  },
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "@reduxjs/toolkit": "^1.6.1",
@@ -16,6 +35,7 @@
     "@types/react-router-dom": "^5.1.7",
     "@types/styled-components": "^5.1.9",
     "clsx": "^1.1.1",
+    "electron-is-dev": "2.0.0",
     "lodash": "^4.17.21",
     "next": "^10.2.0",
     "react": "^17.0.2",
@@ -35,6 +55,12 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "react-start": "BROWSER=none yarn start",
+    "electron-start": "ELECTRON_START_URL=http://localhost:3000 electron .",
+    "deploy:mac": "yarn build && electron-builder --mac",
+    "deploy:win32": "electron-builder --win --ia32",
+    "deploy:win64": "electron-builder --win --x64",
+    "deploy:win": "yarn build && yarn deploy:win32 && yarn deploy:win64",
     "deploy": "aws s3 sync ./build s3://react-portfolio-deploy --profile=deploy-s3",
     "invalidate": "aws cloudfront create-invalidation --profile=deploy-s3 --distribution-id E1JM645VS4N460 --paths /*"
   },
@@ -62,6 +88,8 @@
     "@types/lodash": "^4.14.171",
     "@typescript-eslint/eslint-plugin": "^4.23.0",
     "@typescript-eslint/parser": "^4.23.0",
+    "electron": "14.0.0",
+    "electron-builder": "22.11.7",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
