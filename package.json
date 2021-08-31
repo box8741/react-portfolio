@@ -7,12 +7,10 @@
   "homepage": "./",
   "author": "",
   "build": {
-    "appId": "com.example.react.app",
     "productName": "MyApp",
-    "copyright": "Copyright © 2019 ${author}",
-    "mac": {
-      "category": "public.app-category.utilities"
-    },
+    "appId": "com.example.react.app",
+    "mac": {},
+    "win": {},
     "files": [
       "build/**/*",
       "node_modules/**/*"
