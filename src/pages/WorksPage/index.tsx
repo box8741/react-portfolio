@@ -9,6 +9,16 @@ import {useAppSelector, useAppDispatch} from '../../hooks/useRedux'
 import {Title, Modal} from '../../components'
 import {workList, WorkProps} from '../../mock'
 
+import monthlyLoginSvg from '../../assets/svgs/monthly_login.svg'
+import monthlySplashSvg from '../../assets/svgs/monthly_splash.svg'
+import dosodeDeLoginSvg from '../../assets/svgs/dosode_de_login.svg'
+import dosodeSoLoginSvg from '../../assets/svgs/dosode_so_login.svg'
+import standardUserLoginSvg from '../../assets/svgs/standard_user_login.svg'
+import standardProLoginSvg from '../../assets/svgs/standard_pro_login.svg'
+import lifeLoginSvg from '../../assets/svgs/life_login.svg'
+import lifeSplashSvg from '../../assets/svgs/life_splash.svg'
+import cyfairLoginSvg from '../../assets/svgs/cyfair_login.svg'
+import cyfairLogin2Svg from '../../assets/svgs/cyfair_login2.svg'
 interface ModalLayoutProps {
   title?: string
   period?: string
@@ -89,7 +99,7 @@ const WorksPage = () => {
           desc: `먼슬리 키친은 공용 주방의 음식 배달 앱으로써 "배달의 민족" 같이 사람들이 편리하게 주문하도록 만든 앱입니다.
 다른 음식 배달 앱과 다른 점은 사용할 카드를 미리 앱에 등록하는게 가능합니다.
 먼슬리 키친에 등록되어 있는 식당에서 음식들을 바로 주문하거나 장바구니에 담아서 한 번에 결제 할 수 있으며 주문한 후 배달 및 포장 등의 옵션을 선택하여 기존에 등록해놨던 카드 또는 일반 결제로 주문 가능합니다`,
-          img: ['/assets/svgs/monthly_login.svg', '/assets/svgs/monthly_splash.svg'],
+          img: [monthlyLoginSvg, monthlySplashSvg],
         })
 
       // case 'saguaro':
@@ -123,7 +133,7 @@ const WorksPage = () => {
           desc: `모두의 신상은 "도매", "소매", "디자이너" 총 3개로 이루어진 쇼핑몰 앱입니다.
 디자이너 앱에서 상품을 등록하면 관리자에서 상품에 대한 가격을 측정한 후 도매에 먼저 올라가게 되며 도매에서 최대 수량을 넘을 경우 소매에서도 상품이 올라오는 시스템입니다.
 디자이너가 올린 상품을 "도매", "소매" 앱에서 대량 구매가 가능하며 도매의 경우 최소 수량 이상만 구매 할 수 있습니다.`,
-          img: ['/assets/svgs/dosode_de_login.svg', '/assets/svgs/dosode_so_login.svg'],
+          img: [dosodeDeLoginSvg, dosodeSoLoginSvg],
         })
 
       case 'standard':
@@ -141,7 +151,7 @@ const WorksPage = () => {
 유저 앱의 사용자 정보를 담고 있는 QR 코드와 특정 키트를 이용해 병원 앱에서 유저 정보를 기록해둔 후 검사 결과가 나오면 유저 앱에 보내주는 방식입니다.
 유저는 검사 결과를 이용해 식당 같은 곳에서 "카카오톡 코로나 QRcode" 또는 "네이버 코로나 QRcode" 처럼 사용할 수 있습니다.
 자가 진단 키트가 있다면 유저 앱을 통한 코로나 자가 진단도 가능합니다.`,
-          img: ['/assets/svgs/standard_user_login.svg', '/assets/svgs/standard_pro_login.svg'],
+          img: [standardUserLoginSvg, standardProLoginSvg],
         })
 
       case 'life':
@@ -158,7 +168,7 @@ const WorksPage = () => {
           desc: `인생네컷은 소셜 네트워크 서비스로 사진을 수정하고 공유하는 "인스타그램" 같은 앱입니다.
 게시글을 작성할 수 있고 댓글을 달며 소통이 가능하며 사진에 글씨 넣기, 필터 넣기 등 여러 가지 기능이 있습니다.
 특정 사용자와 친구를 맺어 서로 간의 비밀 다이어리를 만들 수 있으며 결제를 통한 꾸미기 기능을 지원합니다.`,
-          img: ['/assets/svgs/life_login.svg', '/assets/svgs/life_splash.svg'],
+          img: [lifeLoginSvg, lifeSplashSvg],
         })
 
       case 'cyfair':
@@ -174,7 +184,7 @@ const WorksPage = () => {
           ],
           desc: `싸이 페어는 종류별로 자신의 물품 또는 업체를 홍보할 수 있는 박람회 앱입니다.
 사용자는 "바이어", "관람객", "참가업체" 가 있으며 사용자에 따라서 박람회의 참가하여 자신의 업체에 대한 소개 글을 작성하거나 업체에 문의 글을 남길 수 있으며 자신이 마음에 드는 업체가 있다면 찜을 할 수 있는 기능이 있습니다.`,
-          img: ['/assets/svgs/cyfair_login.svg', '/assets/svgs/cyfair_login2.svg'],
+          img: [cyfairLoginSvg, cyfairLogin2Svg],
         })
       default:
         return null

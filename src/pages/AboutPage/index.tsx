@@ -8,6 +8,8 @@ import action from '../../redux/action'
 import {useAppSelector, useAppDispatch} from '../../hooks/useRedux'
 import {Title, LineProgress} from '../../components'
 
+import avatarSvg from '../../assets/svgs/avatar.svg'
+
 interface GraphItemProps {
   name?: string
   percent?: number
@@ -32,7 +34,7 @@ const AboutPage = () => {
       <EachWrap>
         <Title>About Me</Title>
         <InfoLayout>
-          <Avatar src={'/assets/svgs/avatar.svg'} />
+          <Avatar src={avatarSvg} />
           <InfoContentLayout>
             <InfoText>
               {`저의 좌우명은 ‘허울뿐인 개발자가 되지 말자’ 입니다.

@@ -4,6 +4,8 @@ import styled from 'styled-components'
 
 import mkConst from '../common/constants'
 
+import dotSvg from '../assets/svgs/dot.svg'
+
 type Props = {
   children: React.ReactNode
   style?: React.CSSProperties
@@ -23,7 +25,7 @@ const TitleText = styled.div`
     display: block;
     position: absolute;
     content: '';
-    background: url('/assets/svgs/dot.svg');
+    background: url(${dotSvg});
     object-fit: cover;
     width: 37px;
     height: 37px;

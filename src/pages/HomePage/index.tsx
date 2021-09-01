@@ -8,6 +8,8 @@ import mkConst from '../../common/constants'
 import action from '../../redux/action'
 import {useAppSelector, useAppDispatch} from '../../hooks/useRedux'
 
+import avatarSvg from '../../assets/svgs/avatar.svg'
+
 const SamplePage = () => {
   const [index, setIndex] = React.useState(0)
   const [isReverse, setReverse] = React.useState(false)
@@ -40,7 +42,7 @@ const SamplePage = () => {
   return (
     <Layout>
       <EachWrap>
-        <ProfileImg src={'/assets/svgs/avatar.svg'} />
+        <ProfileImg src={avatarSvg} />
         <Title>Minkuk Park</Title>
         <SubTitle>{aniSubTitle}</SubTitle>
         <IconButton target="_Blink" href="https://github.com/box8741">

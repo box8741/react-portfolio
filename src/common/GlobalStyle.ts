@@ -1,9 +1,11 @@
 import {createGlobalStyle} from 'styled-components'
 
+import pretendardRegularFont from '../assets/fonts/Pretendard-Regular.woff'
+
 const GlobalStyle = createGlobalStyle`
     @font-face {
         font-family: 'Pretendard-Regular';
-        src: url('/assets/font/Pretendard-Regular.woff') format('woff');
+        src: url(${pretendardRegularFont}) format('woff')
     }
 
     *, *::before, *::after {
