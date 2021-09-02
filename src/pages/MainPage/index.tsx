@@ -32,7 +32,9 @@ const MainPage = (props: RouteComponentProps) => {
       <Drawer {...{isVisible, isMobile, setVisible}} />
       <MainLayout {...{isVisible, isMobile}}>
         {isMobile && <Header onDrawerVisible={setVisible} />}
-        <MainRouter />
+        <TempLayout {...{isMobile}}>
+          <MainRouter />
+        </TempLayout>
       </MainLayout>
     </>
   )
@@ -48,6 +50,16 @@ const MainLayout = styled.div<{isVisible: boolean; isMobile: boolean}>`
       return css`
         width: calc(100% - 300px);
         margin-left: 300px;
+      `
+    }
+  }}
+`
+const TempLayout = styled.div<{isMobile: boolean}>`
+  height: 100%;
+  ${({isMobile}) => {
+    if (isMobile) {
+      return css`
+        height: calc(100% - 80px);
       `
     }
   }}
