@@ -6,7 +6,7 @@ import {RouteComponentProps} from 'react-router-dom'
 import mkConst from '../../common/constants'
 import action from '../../redux/action'
 import {useAppSelector, useAppDispatch} from '../../hooks/useRedux'
-import {Drawer, Header} from '../../components'
+import {TitleBar, Drawer, Header} from '../../components'
 import MainRouter from '../../router/MainRouter'
 
 const MainPage = (props: RouteComponentProps) => {
@@ -28,9 +28,10 @@ const MainPage = (props: RouteComponentProps) => {
 
   return (
     <>
+      <TitleBar />
       <Drawer {...{isVisible, isMobile, setVisible}} />
-      {isMobile && <Header onDrawerVisible={setVisible} />}
       <MainLayout {...{isVisible, isMobile}}>
+        {isMobile && <Header onDrawerVisible={setVisible} />}
         <MainRouter />
       </MainLayout>
     </>
@@ -38,18 +39,15 @@ const MainPage = (props: RouteComponentProps) => {
 }
 
 const MainLayout = styled.div<{isVisible: boolean; isMobile: boolean}>`
-  height: 100%;
-  transition: width 0.4s ease-in-out, margin-left 0.4s ease-in-out;
+  width: 100%;
+  height: calc(100% - ${mkConst.titleBarHeight}px);
+  overflow-y: auto;
+  transition: width 0.3s ease-in-out, margin-left 0.3s ease-in-out;
   ${({isVisible, isMobile}) => {
     if (isVisible && !isMobile) {
       return css`
         width: calc(100% - 300px);
         margin-left: 300px;
-      `
-    }
-    if (isMobile) {
-      return css`
-        height: calc(100% - 80px);
       `
     }
   }}

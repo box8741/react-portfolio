@@ -1,31 +1,41 @@
-const {app, BrowserWindow} = require('electron')
+const {app, Tray, BrowserWindow, Menu} = require('electron')
 const isDev = require('electron-is-dev')
 const path = require('path')
 
+const isMac = process.platform === 'darwin'
+
+let mainWindow
+
 function createWindow() {
-  const mainWindow = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     width: 800,
-    height: 600,
-    // alwaysOnTop: true,
-    // center: true,
-    // fullscreen: true,
-    // kiosk: !isDev,
-    // resizable: true,
+    height: 800,
+    minWidth: 400,
+    minHeight: 400,
+    titleBarStyle: 'hidden',
+    backgroundColor: '#45435E',
     webPreferences: {
-      nodeIntegration: true,
-      // preload: path.join(__dirname, 'preload.js'),
+      preload: path.join(__dirname, 'preload.js'),
     },
   })
+
   mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`)
-  if (isDev) mainWindow.webContents.openDevTools()
+  // if (isDev) mainWindow.webContents.openDevTools()
+
+  mainWindow.on('closed', () => {
+    mainWindow = null
+  })
 }
 
-app.whenReady().then(createWindow)
+// app.whenReady().then(createWindow)
+
+app.on('ready', createWindow)
 
 app.on('activate', function () {
-  if (BrowserWindow.getAllWindows().length === 0) createWindow()
+  if (mainWindow === null) createWindow()
+  // BrowserWindow.getAllWindows().length === 0 &&
 })
 
 app.on('window-all-closed', function () {
-  if (process.platform !== 'darwin') app.quit()
+  if (!isMac) app.quit()
 })

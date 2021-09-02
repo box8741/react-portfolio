@@ -16,6 +16,7 @@ const GlobalStyle = createGlobalStyle`
     html, body, #root {
         font-family: 'Pretendard-Regular';
         height: 100%;
+        overflow-y: hidden;
     }
 `
 

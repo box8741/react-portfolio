@@ -4,6 +4,8 @@ import _ from 'lodash'
 import styled, {css, keyframes} from 'styled-components'
 import * as IonIcon from '@styled-icons/ionicons-outline'
 
+import mkConst from '../common/constants'
+
 interface Props {
   children?: React.ReactNode
   isVisible?: boolean
@@ -47,7 +49,7 @@ const Layout = styled.div`
   display: flex;
   position: fixed;
   flex-wrap: wrap;
-  top: 0;
+  top: ${mkConst.titleBarHeight}px;
   bottom: 0;
   left: 0;
   right: 0;
