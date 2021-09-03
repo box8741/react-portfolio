@@ -16,8 +16,9 @@ function createWindow() {
     backgroundColor: '#45435E',
     webPreferences: {
       nodeIntegration: true,
+      enableRemoteModule: true,
       contextIsolation: false,
-      preload: path.join(__dirname, 'preload.js'),
+      preload: __dirname + '/preload.js', // path.join(__dirname, 'preload.js'),
     },
   })
 

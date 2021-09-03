@@ -4,6 +4,7 @@ import styled, {css} from 'styled-components'
 import {RouteComponentProps} from 'react-router-dom'
 
 import mkConst from '../../common/constants'
+import mkUtils from '../../common/utils'
 import action from '../../redux/action'
 import {useAppSelector, useAppDispatch} from '../../hooks/useRedux'
 import {TitleBar, Drawer, Header} from '../../components'
@@ -28,7 +29,10 @@ const MainPage = (props: RouteComponentProps) => {
 
   return (
     <>
-      <TitleBar />
+      {/* <TitleBar /> */}
+      <span>
+        {mkUtils.OS(window)} {mkUtils.Browser(window)}
+      </span>
       <Drawer {...{isVisible, isMobile, setVisible}} />
       <MainLayout {...{isVisible, isMobile}}>
         {isMobile && <Header onDrawerVisible={setVisible} />}

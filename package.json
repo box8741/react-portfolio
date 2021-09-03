@@ -54,7 +54,7 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "react-script eject",
-    "react-start": "SET BROWSER=none && yarn start",
+    "react-start": "BROWSER=none yarn start",
     "electron-start": "electron .",
     "deploy:mac": "yarn build && electron-builder --mac",
     "deploy:win32": "electron-builder --win --ia32",

@@ -4,8 +4,10 @@ import styled from 'styled-components'
 // import {ipcRenderer} from 'electron'
 // 다른 해결 방안 고민 필요
 const {ipcRenderer} = window.require('electron')
+// const {ipcRenderer} = require('electron')
 
 import mkConst from '../common/constants'
+import mkUtils from '../common/utils'
 
 import minimizeSvg from '../assets/svgs/minimize_icon.svg'
 import maximizeSvg from '../assets/svgs/maximize_icon.svg'
@@ -34,11 +36,13 @@ const TitleBar = () => {
     <Layout>
       <DragLayout />
       <Title>React-Portfolio</Title>
-      <ControlWrap>
-        <MinimizeIcon onClick={onMaximize} />
-        <MaximizeRestoreIcon onClick={onMaximizeRestore} isMaximize={isMaximize} />
-        <CloseIcon onClick={onClose} />
-      </ControlWrap>
+      {mkUtils.OS(window) === 'Windows' && (
+        <ControlWrap>
+          <MinimizeIcon onClick={onMaximize} />
+          <MaximizeRestoreIcon onClick={onMaximizeRestore} isMaximize={isMaximize} />
+          <CloseIcon onClick={onClose} />
+        </ControlWrap>
+      )}
     </Layout>
   )
 }
