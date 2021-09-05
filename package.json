@@ -7,10 +7,24 @@
   "homepage": "./",
   "author": "",
   "build": {
-    "productName": "Min",
-    "appId": "com.example.react.app",
-    "mac": {},
-    "win": {},
+    "productName": "Min-Portfolio",
+    "appId": "com.min.react.portfolio",
+    "mac": {
+      "icon": "build/assets/icons/avatar.ico"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "build/assets/icons/avatar.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowToChangeInstallationDirectory": true,
+      "language": 1042,
+      "installerIcon": "build/assets/icons/avatar.ico"
+    },
     "files": [
       "build/**/*",
       "node_modules/**/*"

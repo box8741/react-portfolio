@@ -17,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
         font-family: 'Pretendard-Regular';
         height: 100%;
         overflow-y: hidden;
+        -webkit-user-select: none;
     }
 `
 
