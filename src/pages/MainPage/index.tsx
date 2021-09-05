@@ -23,16 +23,15 @@ const MainPage = (props: RouteComponentProps) => {
   }, 32)
 
   React.useEffect(() => {
+    console.log(process.env.REACT_APP_MODE, 'hello')
+
     addEventListener('resize', handleResize)
     return () => removeEventListener('resize', handleResize)
   }, [])
 
   return (
     <>
-      {/* <TitleBar /> */}
-      <span>
-        {mkUtils.OS(window)} {mkUtils.Browser(window)}
-      </span>
+      {mkUtils.isElectron && <TitleBar />}
       <Drawer {...{isVisible, isMobile, setVisible}} />
       <MainLayout {...{isVisible, isMobile}}>
         {isMobile && <Header onDrawerVisible={setVisible} />}

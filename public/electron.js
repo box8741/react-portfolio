@@ -16,9 +16,8 @@ function createWindow() {
     backgroundColor: '#45435E',
     webPreferences: {
       nodeIntegration: true,
-      enableRemoteModule: true,
       contextIsolation: false,
-      preload: __dirname + '/preload.js', // path.join(__dirname, 'preload.js'),
+      preload: path.join(__dirname, 'preload.js'),
     },
   })
 
@@ -26,7 +25,7 @@ function createWindow() {
   // if (isDev) mainWindow.webContents.openDevTools()
 
   // mainWindow.on('closed', () => {
-  //   mainWindow = null
+  //   mainWindow = undefined!
   // })
 
   // custom click

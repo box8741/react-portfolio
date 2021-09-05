@@ -1,10 +1,7 @@
 import * as React from 'react'
 import _ from 'lodash'
 import styled from 'styled-components'
-// import {ipcRenderer} from 'electron'
-// 다른 해결 방안 고민 필요
-const {ipcRenderer} = window.require('electron')
-// const {ipcRenderer} = require('electron')
+import {IpcRenderer} from 'electron'
 
 import mkConst from '../common/constants'
 import mkUtils from '../common/utils'
@@ -13,6 +10,11 @@ import minimizeSvg from '../assets/svgs/minimize_icon.svg'
 import maximizeSvg from '../assets/svgs/maximize_icon.svg'
 import restoreSvg from '../assets/svgs/restore_icon.svg'
 import closeSvg from '../assets/svgs/close_icon.svg'
+
+let ipcRenderer: IpcRenderer
+if (mkUtils.isElectron) {
+  ipcRenderer = require('electron').ipcRenderer
+}
 
 const TitleBar = () => {
   const [isMaximize, setIsMaximize] = React.useState(false)
@@ -36,7 +38,7 @@ const TitleBar = () => {
     <Layout>
       <DragLayout />
       <Title>React-Portfolio</Title>
-      {mkUtils.OS(window) === 'Windows' && (
+      {mkUtils.OS === 'Windows' && (
         <ControlWrap>
           <MinimizeIcon onClick={onMaximize} />
           <MaximizeRestoreIcon onClick={onMaximizeRestore} isMaximize={isMaximize} />
@@ -94,11 +96,15 @@ const ControlWrap = styled.div`
   display: flex;
   width: 120px;
   height: 100%;
+  button {
+    opacity: 0.4;
+  }
   button:hover {
-    background-color: gray;
+    background-color: rgba(255, 255, 255, 0.1);
+    opacity: 1;
   }
   ${CloseIcon}:hover {
-    background-color: red;
+    background-color: #f44336;
   }
 `
 

@@ -1,16 +1,18 @@
+import isElectron from 'is-electron'
+
 type OperatingSystemType = 'Unknown' | 'Windows' | 'Mac' | 'UNIX' | 'Linux'
 type CurrentBrowserType = 'Unknown' | 'Chrome' | 'Firefox' | 'IE' | 'Edge' | 'Safari' | 'Opera'
 
-const getOperatingSystem = (window: Window) => {
+const getOperatingSystem = () => {
   let operatingSystem: OperatingSystemType = 'Unknown'
-  if (window.navigator.appVersion.indexOf('Win') !== -1) operatingSystem = 'Windows'
-  if (window.navigator.appVersion.indexOf('Mac') !== -1) operatingSystem = 'Mac'
-  if (window.navigator.appVersion.indexOf('X11') !== -1) operatingSystem = 'UNIX'
-  if (window.navigator.appVersion.indexOf('Linux') !== -1) operatingSystem = 'Linux'
+  if (window.navigator.userAgent.indexOf('Win') !== -1) operatingSystem = 'Windows'
+  if (window.navigator.userAgent.indexOf('Mac') !== -1) operatingSystem = 'Mac'
+  if (window.navigator.userAgent.indexOf('X11') !== -1) operatingSystem = 'UNIX'
+  if (window.navigator.userAgent.indexOf('Linux') !== -1) operatingSystem = 'Linux'
   return operatingSystem
 }
 
-const getBrowser = (window: Window) => {
+const getBrowser = () => {
   let currentBrowser: CurrentBrowserType = 'Unknown'
   if (window.navigator.userAgent.indexOf('Chrome') !== -1) currentBrowser = 'Chrome'
   else if (window.navigator.userAgent.indexOf('Firefox') !== -1) currentBrowser = 'Firefox'
@@ -22,10 +24,9 @@ const getBrowser = (window: Window) => {
   return currentBrowser
 }
 
-const OS = (window: Window) => getOperatingSystem(window)
-const Browser = (window: Window) => getBrowser(window)
-
 export default {
-  OS,
-  Browser,
+  OS: getOperatingSystem(),
+  Browser: getBrowser(),
+  isElectron: process.env.REACT_APP_MODE === 'electron',
+  // isElectron: isElectron(),
 }
