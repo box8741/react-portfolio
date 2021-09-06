@@ -28,7 +28,7 @@ const MainPage = (props: RouteComponentProps) => {
   }, [])
 
   return (
-    <Layout>
+    <>
       {mkUtils.isElectron && <TitleBar />}
       <Drawer {...{isVisible, isMobile, setVisible}} />
       <MainLayout {...{isVisible, isMobile}}>
@@ -37,15 +37,13 @@ const MainPage = (props: RouteComponentProps) => {
           <MainRouter />
         </TempLayout>
       </MainLayout>
-    </Layout>
+    </>
   )
 }
 
-const Layout = styled.div`
-  width: 100%;
-  height: 100%;
-`
 const MainLayout = styled.div<{isVisible: boolean; isMobile: boolean}>`
+  position: relative;
+  top: ${mkConst.titleBarHeight}px;
   width: 100%;
   height: calc(100% - ${mkConst.titleBarHeight}px);
   transition: width 0.3s ease-in-out, margin-left 0.3s ease-in-out;

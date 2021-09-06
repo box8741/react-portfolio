@@ -51,9 +51,7 @@ const TitleBar = () => {
 
 const Layout = styled.div`
   display: flex;
-  position: sticky;
-  position: -webkit-sticky;
-  top: 0;
+  position: fixed;
   width: 100%;
   height: ${mkConst.titleBarHeight}px;
   align-items: center;
