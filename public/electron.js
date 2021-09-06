@@ -21,29 +21,29 @@ function createWindow() {
     },
   })
 
-  // const menu = Menu.buildFromTemplate([
-  //   ...(isMac
-  //     ? [
-  //         {
-  //           label: app.name,
-  //           submenu: [
-  //             {role: 'about'},
-  //             {type: 'separator'},
-  //             {role: 'hide'},
-  //             {role: 'hideOthers'},
-  //             {role: 'unhide'},
-  //             {type: 'separator'},
-  //             {role: 'quit'},
-  //           ],
-  //         },
-  //       ]
-  //     : []),
-  //   {
-  //     label: 'Edit',
-  //     submenu: [{role: 'undo'}, {role: 'redo'}, {type: 'separator'}, {role: 'cut'}, {role: 'copy'}, {role: 'paste'}],
-  //   },
-  // ])
-  // Menu.setApplicationMenu(menu)
+  const menu = Menu.buildFromTemplate([
+    ...(isMac
+      ? [
+          {
+            label: app.name,
+            submenu: [
+              {role: 'about'},
+              {type: 'separator'},
+              {role: 'hide'},
+              {role: 'hideOthers'},
+              {role: 'unhide'},
+              {type: 'separator'},
+              {role: 'quit'},
+            ],
+          },
+        ]
+      : []),
+    {
+      label: 'Edit',
+      submenu: [{role: 'undo'}, {role: 'redo'}, {type: 'separator'}, {role: 'cut'}, {role: 'copy'}, {role: 'paste'}],
+    },
+  ])
+  Menu.setApplicationMenu(menu)
   mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`)
   // if (isDev) mainWindow.webContents.openDevTools()
 

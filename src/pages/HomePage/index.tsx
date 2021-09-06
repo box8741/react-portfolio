@@ -60,11 +60,17 @@ const SamplePage = () => {
       <Modal isVisible={isDownloadVisibile} onHide={() => setDownloadVisible(false)}>
         <ModalLayout>
           <ModalTitle>Download</ModalTitle>
-          <ModalItemLayout download href="/assets/downloads/Min-Portfolio.exe">
+          <ModalItemLayout
+            download
+            href="https://react-portfolio-file.s3.ap-northeast-2.amazonaws.com/Min-Portfolio.exe"
+          >
             <WindowsIcon />
             Windows
           </ModalItemLayout>
-          <ModalItemLayout download href="/assets/downloads/Min-Portfolio.exe">
+          <ModalItemLayout
+            download
+            href="https://react-portfolio-file.s3.ap-northeast-2.amazonaws.com/Min-Portfolio.exe"
+          >
             <AppleIcon />
             Mac
           </ModalItemLayout>
