@@ -59,6 +59,7 @@ const AboutPage = () => {
           <ReactLogoIcon />
           <JavaIcon />
           <AndroidIcon />
+          <ElectronIcon />
         </ItemLayout>
       </EachWrap>
     </Layout>
@@ -186,6 +187,9 @@ const ReactLogoIcon = styled(SimpleIcon.ReactLogo)`
   ${IconStyle}
 `
 const AndroidIcon = styled(SimpleIcon.Android)`
+  ${IconStyle}
+`
+const ElectronIcon = styled(SimpleIcon.Electron)`
   ${IconStyle}
 `
 
