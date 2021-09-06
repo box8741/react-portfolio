@@ -41,6 +41,7 @@ function createWindow() {
     }
   })
 
+  // windows
   mainWindow.on('maximize', () => {
     mainWindow.webContents.send('isMaximized')
   })
@@ -48,12 +49,18 @@ function createWindow() {
     mainWindow.webContents.send('isRestored')
   })
 
+  // mac
+  // mainWindow.on('enter-full-screen', () => {
+  //   mainWindow.webContents.send('enterFullScreen')
+  // })
+  // mainWindow.on('leave-full-screen', () => {
+  //   mainWindow.webContents.send('leaveFullScreen')
+  // })
+
   ipcMain.on('closeApp', () => {
     mainWindow.close()
   })
 }
-
-// app.whenReady().then(createWindow)
 
 app.on('ready', createWindow)
 

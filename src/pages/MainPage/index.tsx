@@ -23,14 +23,12 @@ const MainPage = (props: RouteComponentProps) => {
   }, 32)
 
   React.useEffect(() => {
-    console.log(process.env.REACT_APP_MODE, 'hello')
-
     addEventListener('resize', handleResize)
     return () => removeEventListener('resize', handleResize)
   }, [])
 
   return (
-    <>
+    <Layout>
       {mkUtils.isElectron && <TitleBar />}
       <Drawer {...{isVisible, isMobile, setVisible}} />
       <MainLayout {...{isVisible, isMobile}}>
@@ -39,10 +37,13 @@ const MainPage = (props: RouteComponentProps) => {
           <MainRouter />
         </TempLayout>
       </MainLayout>
-    </>
+    </Layout>
   )
 }
 
+const Layout = styled.div`
+  height: 100%;
+`
 const MainLayout = styled.div<{isVisible: boolean; isMobile: boolean}>`
   width: 100%;
   height: calc(100% - ${mkConst.titleBarHeight}px);

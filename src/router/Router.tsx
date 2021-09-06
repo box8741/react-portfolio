@@ -4,7 +4,9 @@ import {MuiThemeProvider} from '@material-ui/core'
 import styled from 'styled-components'
 
 import mkConst from '../common/constants'
+import mkUtils from '../common/utils'
 import theme from '../theme/marterialTheme'
+import {TitleBar} from '../components'
 
 // error pages
 import NotSupportPage from '../pages/NotSupportPage'
@@ -32,6 +34,7 @@ const Router = () => {
 
 const Layout = styled.div`
   height: 100%;
+  overflow-y: hidden;
   background: ${({theme}) => theme.color.background.default};
 `
 

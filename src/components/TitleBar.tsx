@@ -51,18 +51,20 @@ const TitleBar = () => {
 
 const Layout = styled.div`
   display: flex;
-  position: relative;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
   width: 100%;
+  min-height: ${mkConst.titleBarHeight}px;
   align-items: center;
-  height: ${mkConst.titleBarHeight}px;
   z-index: 9999;
   background: #5e5c7f;
+  -webkit-app-region: drag;
 `
 const DragLayout = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
-  -webkit-app-region: drag;
 `
 const Title = styled.div`
   position: absolute;
@@ -96,6 +98,7 @@ const ControlWrap = styled.div`
   display: flex;
   width: 120px;
   height: 100%;
+  -webkit-app-region: no-drag;
   button {
     opacity: 0.4;
   }
