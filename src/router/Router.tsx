@@ -21,10 +21,10 @@ const Router = () => {
       <BrowserRouter>
         <Switch>
           <Layout>
-            <Redirect from="/" to="/main" />
             <Route path="/main" component={MainPage} />
             {/* <Route path="/notSupport" component={NotSupportPage} /> */}
             {/* <Route path="/" exact component={LoginPage} /> */}
+            <Redirect from="*" to="/main/home" />
           </Layout>
         </Switch>
       </BrowserRouter>
@@ -34,7 +34,6 @@ const Router = () => {
 
 const Layout = styled.div`
   height: 100%;
-  overflow-y: hidden;
   background: ${({theme}) => theme.color.background.default};
 `
 

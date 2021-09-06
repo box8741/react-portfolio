@@ -42,12 +42,12 @@ const MainPage = (props: RouteComponentProps) => {
 }
 
 const Layout = styled.div`
+  width: 100%;
   height: 100%;
 `
 const MainLayout = styled.div<{isVisible: boolean; isMobile: boolean}>`
   width: 100%;
   height: calc(100% - ${mkConst.titleBarHeight}px);
-  overflow-y: auto;
   transition: width 0.3s ease-in-out, margin-left 0.3s ease-in-out;
   ${({isVisible, isMobile}) => {
     if (isVisible && !isMobile) {
@@ -59,6 +59,7 @@ const MainLayout = styled.div<{isVisible: boolean; isMobile: boolean}>`
   }}
 `
 const TempLayout = styled.div<{isMobile: boolean}>`
+  width: 100%;
   height: 100%;
   ${({isMobile}) => {
     if (isMobile) {

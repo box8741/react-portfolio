@@ -14,11 +14,10 @@ const MainRouter = (props: RouteComponentProps) => {
 
   return (
     <Switch>
-      <Route path={`${match.url}/home`} component={HomePage} />
-      <Route path={`${match.url}/about`} component={AboutPage} />
-      <Route path={`${match.url}/experience`} component={ExperiencePage} />
-      <Route path={`${match.url}/works`} component={WorksPage} />
-      <Redirect to={`${match.url}/home`} />
+      <Route exact path={`${match.url}/home`} component={HomePage} />
+      <Route exact path={`${match.url}/about`} component={AboutPage} />
+      <Route exact path={`${match.url}/experience`} component={ExperiencePage} />
+      <Route exact path={`${match.url}/works`} component={WorksPage} />
     </Switch>
   )
 }
