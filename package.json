@@ -68,7 +68,7 @@
     "test": "craco test",
     "eject": "react-script eject",
     "electron:start:mac": "concurrently \"REACT_APP_MODE=electron BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
-    "electron:start:win": "concurrently \"set REACT_APP_MODE=electron&&BROWSER=none&&yarn start\" \"wait-on http://localhost:3000 && electron .\"",
+    "electron:start:win": "concurrently \"set REACT_APP_MODE=electron&&set BROWSER=none&&yarn start\" \"wait-on http://localhost:3000 && electron .\"",
     "deploy:win32": "electron-builder --win --ia32",
     "deploy:win64": "electron-builder --win --x64",
     "deploy:mac": "REACT_APP_MODE=electron yarn build && electron-builder --mac",

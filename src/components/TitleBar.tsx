@@ -55,7 +55,7 @@ const Layout = styled.div`
   position: -webkit-sticky;
   top: 0;
   width: 100%;
-  min-height: ${mkConst.titleBarHeight}px;
+  height: ${mkConst.titleBarHeight}px;
   align-items: center;
   z-index: 9999;
   background: #5e5c7f;
