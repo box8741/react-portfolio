@@ -100,11 +100,11 @@ const Experience = () => {
                 content: `- 먼슬리 키친 (React-native)
 결제 관련 플로우 기능 구현 및 예외 처리 작업
 상품 주문정보 목록 갱신을 위한 주문, 취소 등 특정 이벤트 발생 시 동기화 작업
-Root Siblings 을 이용한 알림 창 공통화 구현
+Root Siblings 을 이용한 알림 창 모듈화 구현
 FCM을 통한 특정 페이지 이동을 위해 Deep Linking 구현
 
 - 인생네컷 (React-native)
-Android, iOS 권한 요청 공통화 구현
+Android, iOS 권한 요청 모듈화 구현
 인스타그램의 사진 필터 기능처럼 WebGL을 통해 구현
 
 - 스탠다드 패스 (React-native)
@@ -121,6 +121,7 @@ JWT 토큰 관리를 위한 refresh Token 별도 저장 및 토큰 갱신 구현
 - 싸이페어 (React-native)
 FCM 관련 설정 이슈 수정 작업
 박람회 작성에 링크 기능 추가 작업
+UI/UX 개선 및 추가 작업
 `,
                 iconType: 'work',
               })}
