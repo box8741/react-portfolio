@@ -1,5 +1,3 @@
-import isElectron from 'is-electron'
-
 type OperatingSystemType = 'Unknown' | 'Windows' | 'Mac' | 'UNIX' | 'Linux'
 type CurrentBrowserType = 'Unknown' | 'Chrome' | 'Firefox' | 'IE' | 'Edge' | 'Safari' | 'Opera'
 
@@ -28,5 +26,4 @@ export default {
   OS: getOperatingSystem(),
   Browser: getBrowser(),
   isElectron: process.env.REACT_APP_MODE === 'electron',
-  // isElectron: isElectron(),
 }

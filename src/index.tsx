@@ -5,15 +5,15 @@ import ReactDOM from 'react-dom'
 import {CssBaseline} from '@material-ui/core'
 import {ThemeProvider} from 'styled-components'
 import {Provider} from 'react-redux'
-import {isIE} from 'react-device-detect'
 
+import mkUtils from './common/utils'
 import GlobalStyle from './common/GlobalStyle'
 import {theme} from './theme/styledTheme'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import store from './redux/store'
 
-if (isIE) {
+if (mkUtils.Browser === 'IE') {
   location.href = 'microsoft-edge:' + window.location
   setTimeout(function () {
     location.href = 'https://go.microsoft.com/fwlink/?linkid=2135547'

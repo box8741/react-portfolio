@@ -9,26 +9,27 @@
   "build": {
     "productName": "Min-Portfolio",
     "appId": "com.min.react.portfolio",
+    "asar": true,
     "mac": {
-      "icon": "build/assets/icons/avatar.ico"
+      "icon": "build/assets/icons/icon.ico"
     },
     "win": {
       "target": [
         "nsis"
       ],
-      "icon": "build/assets/icons/avatar.ico"
+      "icon": "build/assets/icons/icon.ico"
     },
+    "files": [
+      "node_modules",
+      "package.json"
+    ],
     "nsis": {
       "oneClick": false,
       "perMachine": true,
       "allowToChangeInstallationDirectory": true,
       "language": 1042,
-      "installerIcon": "build/assets/icons/avatar.ico"
+      "installerIcon": "build/assets/icons/icon.ico"
     },
-    "files": [
-      "build/**/*",
-      "node_modules/**/*"
-    ],
     "directories": {
       "buildResources": "assets"
     }
@@ -49,12 +50,9 @@
     "@types/styled-components": "^5.1.9",
     "clsx": "^1.1.1",
     "electron-is-dev": "2.0.0",
-    "is-electron": "^2.2.0",
     "lodash": "^4.17.21",
-    "next": "^10.2.0",
     "react": "^17.0.2",
     "react-app-polyfill": "^2.0.0",
-    "react-device-detect": "^1.17.0",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
@@ -73,7 +71,7 @@
     "electron:start:win": "concurrently \"set REACT_APP_MODE=electron&&BROWSER=none&&yarn start\" \"wait-on http://localhost:3000 && electron .\"",
     "deploy:win32": "electron-builder --win --ia32",
     "deploy:win64": "electron-builder --win --x64",
-    "deploy:mac": "REACT_APP_MODE=electron yarn build electron-builder --mac",
+    "deploy:mac": "REACT_APP_MODE=electron yarn build && electron-builder --mac",
     "deploy:win": "set REACT_APP_MODE=electron&&yarn build && yarn deploy:win32 && yarn deploy:win64",
     "deploy": "aws s3 sync ./build s3://react-portfolio-deploy --profile=deploy-s3",
     "invalidate": "aws cloudfront create-invalidation --profile=deploy-s3 --distribution-id E1JM645VS4N460 --paths /*"
