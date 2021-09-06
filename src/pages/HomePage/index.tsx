@@ -54,7 +54,7 @@ const SamplePage = () => {
             <GithubIcon />
           </IconButton>
         </LinkLayout>
-        <Download onClick={() => setDownloadVisible(true)}>Download</Download>
+        {!mkUtils.isMobile && <Download onClick={() => setDownloadVisible(true)}>Download</Download>}
       </EachWrap>
 
       <Modal isVisible={isDownloadVisibile} onHide={() => setDownloadVisible(false)}>
