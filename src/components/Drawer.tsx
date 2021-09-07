@@ -78,7 +78,7 @@ const DrawerContent = styled.div<{isVisible: boolean}>`
   overflow-y: auto;
   flex-direction: column;
   justify-content: space-between;
-  z-index: 1;
+  z-index: 999;
   background: ${({theme}) => theme.color.background.primary};
   padding: 38px;
   border-right: 1px solid #4a4863;
@@ -100,7 +100,7 @@ const DrawerBackground = styled.div<{isVisible: boolean; isMobile: boolean}>`
   background: white;
   opacity: 0;
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-  z-index: 1;
+  z-index: 999;
   ${({isVisible, isMobile}) => {
     if (isVisible && isMobile) {
       return css`

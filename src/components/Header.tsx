@@ -26,21 +26,25 @@ const Header = (props: Props) => {
 
 const Layout = styled.div`
   display: flex;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
   width: 100%;
-  height: 80px;
+  height: 56px;
+  z-index: 10;
   align-items: center;
-  background: ${({theme}) => theme.color.background.primary};
+  background: ${({theme}) => theme.color.background.primary}FA;
   padding: 12px 18px;
 `
 const Logo = styled.div`
-  font-size: 36px;
+  font-size: 28px;
   font-weight: 900;
   color: white;
-  margin-left: 16px;
+  margin-left: 12px;
 `
 const MenuIcon = styled(IonIcon.Menu)`
-  width: 36px;
-  height: 36px;
+  width: 28px;
+  height: 28px;
   color: white;
 `
 

@@ -87,7 +87,7 @@ const CursurAnimation = keyframes`
 `
 const Layout = styled.div`
   display: flex;
-  min-height: 100%;
+  flex: 1;
   align-items: center;
   justify-content: center;
   background: ${({theme}) => theme.color.background.primary};

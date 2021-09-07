@@ -252,7 +252,7 @@ const showAnimation = (index: number) => css`
 `
 const Layout = styled.div`
   display: flex;
-  min-height: 100%;
+  flex: 1;
   justify-content: center;
 `
 const EachWrap = styled.div`

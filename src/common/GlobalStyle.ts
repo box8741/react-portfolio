@@ -1,5 +1,7 @@
 import {createGlobalStyle} from 'styled-components'
 
+import mkConst from './constants'
+
 import pretendardRegularFont from '../assets/fonts/Pretendard-Regular.woff'
 
 const GlobalStyle = createGlobalStyle`
@@ -15,10 +17,13 @@ const GlobalStyle = createGlobalStyle`
     }
     body{
         overflow-y: auto;
+        padding-top: ${mkConst.titleBarHeight}px;
     }
     html, body, #root {
-        font-family: 'Pretendard-Regular';
+        display: flex;
+        width: 100%;
         height: 100%;
+        font-family: 'Pretendard-Regular';
         -webkit-user-select: none;
     }
 `
