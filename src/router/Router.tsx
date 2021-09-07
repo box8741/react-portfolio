@@ -21,10 +21,10 @@ const Router = () => {
       <BrowserRouter>
         <Switch>
           <Layout>
-            <Route path="/main" component={MainPage} />
+            <Route path="/" component={MainPage} />
             {/* <Route path="/notSupport" component={NotSupportPage} /> */}
             {/* <Route path="/" exact component={LoginPage} /> */}
-            <Redirect from="*" to="/main/home" />
+            <Redirect to="/" />
           </Layout>
         </Switch>
       </BrowserRouter>

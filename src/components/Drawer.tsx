@@ -21,14 +21,15 @@ const Drawer = (props: Props) => {
   }, [isVisible, isMobile])
 
   const tabList = [
-    {name: 'Home', path: '/main/home', icon: () => <HomeIcon />},
-    {name: 'About', path: '/main/about', icon: () => <AboutIcon />},
-    {name: 'Experience', path: '/main/experience', icon: () => <ExperienceIcon />},
-    {name: 'Works', path: '/main/works', icon: () => <WorksIcon />},
+    {name: 'Home', path: '/', icon: () => <HomeIcon />},
+    {name: 'About', path: '/about', icon: () => <AboutIcon />},
+    {name: 'Experience', path: '/experience', icon: () => <ExperienceIcon />},
+    {name: 'Works', path: '/works', icon: () => <WorksIcon />},
   ]
 
   const activeRoute = (path: string) => {
-    return location.pathname.indexOf(path) > -1
+    // return location.pathname.indexOf(path) > -1
+    return location.pathname === path
   }
 
   const _drawerContent = () => {

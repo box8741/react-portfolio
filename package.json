@@ -13,23 +13,23 @@
     "mac": {
       "icon": "build/assets/icons/icon.ico"
     },
-    "win": {
-      "target": [
-        "nsis"
-      ],
+    "dmg": {
       "icon": "build/assets/icons/icon.ico"
+    },
+    "win": {
+      "icon": "build/assets/icons/icon.ico"
+    },
+    "nsis": {
+      "oneClick": true,
+      "language": 1042,
+      "installerIcon": "build/assets/icons/icon.ico",
+      "uninstallerIcon": "build/assets/icons/icon.ico",
+      "installerHeaderIcon": "build/assets/icons/icon.ico"
     },
     "files": [
       "node_modules",
       "package.json"
     ],
-    "nsis": {
-      "oneClick": false,
-      "perMachine": true,
-      "allowToChangeInstallationDirectory": true,
-      "language": 1042,
-      "installerIcon": "build/assets/icons/icon.ico"
-    },
     "directories": {
       "buildResources": "assets"
     }
@@ -75,7 +75,7 @@
     "deploy:win": "set REACT_APP_MODE=electron&&yarn build && yarn deploy:win32 && yarn deploy:win64",
     "deploy": "aws s3 sync ./build s3://react-portfolio-deploy --profile=deploy-s3",
     "invalidate": "aws cloudfront create-invalidation --profile=deploy-s3 --distribution-id E1JM645VS4N460 --paths /*",
-    "publish:web": "yarn build && yarn deploy && yarn invalidate"
+    "deploy:web": "yarn build && yarn deploy && yarn invalidate"
   },
   "eslintConfig": {
     "extends": [
