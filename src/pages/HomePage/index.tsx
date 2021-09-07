@@ -62,14 +62,14 @@ const SamplePage = () => {
           <ModalTitle>Download</ModalTitle>
           <ModalItemLayout
             download
-            href="https://react-portfolio-file.s3.ap-northeast-2.amazonaws.com/Min-Portfolio.exe"
+            href="https://react-portfolio-file.s3.ap-northeast-2.amazonaws.com/PortfolioSetup.exe"
           >
             <WindowsIcon />
             Windows
           </ModalItemLayout>
           <ModalItemLayout
             download
-            href="https://react-portfolio-file.s3.ap-northeast-2.amazonaws.com/Min-Portfolio.dmg"
+            href="https://react-portfolio-file.s3.ap-northeast-2.amazonaws.com/PortfolioSetup.dmg"
           >
             <AppleIcon />
             Mac
