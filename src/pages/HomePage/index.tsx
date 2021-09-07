@@ -69,7 +69,7 @@ const SamplePage = () => {
           </ModalItemLayout>
           <ModalItemLayout
             download
-            href="https://react-portfolio-file.s3.ap-northeast-2.amazonaws.com/Min-Portfolio.exe"
+            href="https://react-portfolio-file.s3.ap-northeast-2.amazonaws.com/Min-Portfolio.dmg"
           >
             <AppleIcon />
             Mac
