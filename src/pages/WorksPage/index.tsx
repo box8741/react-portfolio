@@ -262,25 +262,25 @@ const EachWrap = styled.div`
   max-width: ${({theme}) => `${theme.size.desktop}px`};
   margin: 40px 0;
 `
-const TabLayout = styled.ul`
-  display: flex;
-  margin: 36px;
-  ${({theme}) => theme.media.tablet`
-       display: none;
-  `}
-`
-const TabItemWrap = styled.li<{isSelect: boolean}>`
-  font-size: 16px;
-  font-weight: 900;
-  color: ${props => (props.isSelect ? props.theme.color.default.red : props.theme.color.background.primary)};
-  margin-right: 24px;
-  list-style: none;
-  transition: color 0.3s ease-in-out;
-  cursor: pointer;
-  &:hover {
-    color: ${({theme}) => theme.color.default.red};
-  }
-`
+// const TabLayout = styled.ul`
+//   display: flex;
+//   margin: 36px;
+//   ${({theme}) => theme.media.tablet`
+//        display: none;
+//   `}
+// `
+// const TabItemWrap = styled.li<{isSelect: boolean}>`
+//   font-size: 16px;
+//   font-weight: 900;
+//   color: ${props => (props.isSelect ? props.theme.color.default.red : props.theme.color.background.primary)};
+//   margin-right: 24px;
+//   list-style: none;
+//   transition: color 0.3s ease-in-out;
+//   cursor: pointer;
+//   &:hover {
+//     color: ${({theme}) => theme.color.default.red};
+//   }
+// `
 const WorkLayout = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
