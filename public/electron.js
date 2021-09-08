@@ -1,12 +1,12 @@
 const {app, BrowserWindow, Menu, ipcMain, shell} = require('electron')
+const EventEmitter = require('events')
 const isDev = require('electron-is-dev')
 const path = require('path')
 
 const isMac = process.platform === 'darwin'
 
-// let mainWindow
-
-function createWindow() {
+const loadingEvents = new EventEmitter()
+const createWindow = () => {
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 800,
@@ -47,10 +47,6 @@ function createWindow() {
   mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`)
   // if (isDev) mainWindow.webContents.openDevTools()
 
-  // mainWindow.on('closed', () => {
-  //   mainWindow = undefined!
-  // })
-
   // custom click
   ipcMain.on('minimizeApp', () => {
     mainWindow.minimize()
@@ -90,10 +86,31 @@ function createWindow() {
   })
 }
 
-app.on('ready', createWindow)
+app.on('ready', () => {
+  const loadWindow = new BrowserWindow({
+    width: 400,
+    height: 400,
+    minWidth: 400,
+    minHeight: 400,
+    frame: false,
+    backgroundColor: '#45435E',
+    resizable: false,
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+      preload: path.join(__dirname, 'preload.js'),
+    },
+  })
+  Menu.setApplicationMenu(new Menu())
+  loadWindow.loadURL(`file://${path.join(__dirname, '../public/electronSplash.html')}`)
+  setTimeout(() => loadingEvents.emit('finished'), 3000)
+  loadingEvents.on('finished', () => {
+    loadWindow.close()
+    createWindow()
+  })
+})
 
 app.on('activate', function () {
-  // if (mainWindow === null) createWindow()
   if (BrowserWindow.getAllWindows().length === 0) createWindow()
 })
 
