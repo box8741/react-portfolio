@@ -102,7 +102,11 @@ app.on('ready', () => {
     },
   })
   Menu.setApplicationMenu(new Menu())
-  loadWindow.loadURL(`file://${path.join(__dirname, '../public/electronSplash.html')}`)
+  loadWindow.loadURL(
+    isDev
+      ? `file://${path.join(__dirname, '../public/electronSplash.html')}`
+      : `file://${path.join(__dirname, '../build/electronSplash.html')}`
+  )
   setTimeout(() => loadingEvents.emit('finished'), 3000)
   loadingEvents.on('finished', () => {
     loadWindow.close()
