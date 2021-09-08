@@ -14,6 +14,7 @@ const createWindow = () => {
     minHeight: 600,
     titleBarStyle: 'hidden',
     backgroundColor: '#45435E',
+    center: true,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
@@ -90,8 +91,7 @@ app.on('ready', () => {
   const loadWindow = new BrowserWindow({
     width: 400,
     height: 400,
-    minWidth: 400,
-    minHeight: 400,
+    center: true,
     frame: false,
     backgroundColor: '#45435E',
     resizable: false,
