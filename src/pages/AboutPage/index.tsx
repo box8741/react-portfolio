@@ -37,8 +37,9 @@ const AboutPage = () => {
           <Avatar src={avatarSvg} />
           <InfoContentLayout>
             <InfoText>
-              {`저의 좌우명은 ‘허울뿐인 개발자가 되지 말자’ 입니다.
-개발자는 많지만 개발 방법에 대해 끊임없이 의심하지 않고 사용 이유도 모르는 사람이 많습니다 저는 이전 직상에서 Typescript 도입, 알림창 모듈화, 권한 모듈화 등 많은 시도를 해보았습니다.
+              {`저의 좌우명은 ‘능력은 부딪치는 만큼 보인다’입니다.
+해보지 않고는 모른다는 말이 있듯이 여러 가지의 경험을 통해 지식을 쌓고 커뮤니케이션 능력을 올리고 있습니다.
+저는 직장에서 Typescript, Deep Linking, Redux 등 많은 경험을 해보았으며 이외에도 React, Electron 을 공부하며 자기개발을 하고 있습니다.
 개발자들 사이에서 그 사람 잘하더라라는 말을 할만한 개발자가 되기 위해 노력하고 있습니다.`}
             </InfoText>
             <InfoGraphLayout>

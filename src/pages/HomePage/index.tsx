@@ -67,13 +67,13 @@ const SamplePage = () => {
             <WindowsIcon />
             Windows
           </ModalItemLayout>
-          <ModalItemLayout
+          {/* <ModalItemLayout
             download
             href="https://react-portfolio-file.s3.ap-northeast-2.amazonaws.com/PortfolioSetup.dmg"
           >
             <AppleIcon />
             Mac
-          </ModalItemLayout>
+          </ModalItemLayout> */}
         </ModalLayout>
       </Modal>
     </Layout>
